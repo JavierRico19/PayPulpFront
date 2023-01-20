@@ -1,0 +1,19 @@
+nav{
+    width: 100vw;
+    background-color: #0245A3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+nav span{
+    margin-left: 40px;
+}
+.NavBar{
+    display: flex;
+    align-items: center;
+}
+nav span:hover{
+    color: white;
+    
+}
