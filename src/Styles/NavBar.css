@@ -1,3 +1,6 @@
+* {
+    text-decoration-line: none;
+}
 nav{
     width: 100vw;
     background-color: #0245A3;
@@ -8,12 +11,23 @@ nav{
 }
 nav span{
     margin-left: 40px;
+    color:white;
+    text-decoration-line: none;
 }
 .NavBar{
     display: flex;
     align-items: center;
 }
 nav span:hover{
-    color: white;
+    color: wheat
     
+}
+nav button{
+    margin-left: 100px;
+    justify-content: right;
+    align-items: right;
+}
+img{
+    margin-right: 5px;
+    margin-left: 8px;
 }

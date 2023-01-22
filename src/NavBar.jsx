@@ -1,12 +1,15 @@
 import React, { Fragment } from 'react';
-import { Routes, Route, NavLink } from 'react-router-dom';
+import { Routes, Route, NavLink, Router } from 'react-router-dom';
 import logo from './Assets/Paypulp3.png';
+import logo2 from './Assets/Paypulptr.png';
 import './Styles/NavBar.css';
 import Home from './Home'
 import Personal from './Personal';
 import Business from './Business';
 import Developer from './Developer';
 import Help from './Help';
+import Login from './Login';
+import Signup from './Signup';
 
 export default function NavBar(){
 
@@ -15,19 +18,25 @@ export default function NavBar(){
             <nav>
                 <div className='NavBar'>
                     <NavLink to=''>
-                    <img src={logo} width='200' height='80'/>
+                    <img src={logo2} width='210' height='70'/>
                     </NavLink>
-                    <NavLink to='/Personal'>
+                    <NavLink to='/personal'>
                         <span>Personal</span>
                     </NavLink>
-                    <NavLink to='/Business'>
+                    <NavLink to='/business'>
                         <span>Business</span>
                     </NavLink>
-                    <NavLink to='/Developer'>
+                    <NavLink to='/developer'>
                         <span>Developer</span>
                     </NavLink>
-                    <NavLink to='/Help'>
+                    <NavLink to='/help'>
                         <span>Help</span>
+                    </NavLink>
+                    <NavLink to='/login'>
+                        <button variant="outlined">Log In</button>
+                    </NavLink>
+                    <NavLink to='/signup'>
+                        <button>Sign Up</button>
                     </NavLink>
                 </div>
             </nav>
@@ -37,6 +46,8 @@ export default function NavBar(){
                 <Route path='Business' element={<Business/>} />
                 <Route path='Developer' element={<Developer/>} />
                 <Route path='Help' element={<Help/>} />
+                <Route path='Login' element={<Login/>} />
+                <Route path='Signup' element={<Signup/>} />
             </Routes>
         </div>
     )
