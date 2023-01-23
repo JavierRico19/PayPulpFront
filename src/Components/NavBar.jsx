@@ -1,15 +1,14 @@
 import React, { Fragment } from 'react';
 import { Routes, Route, NavLink, Router } from 'react-router-dom';
-import logo from './Assets/Paypulp3.png';
-import logo2 from './Assets/Paypulptr.png';
-import './Styles/NavBar.css';
-import Home from './Home'
-import Personal from './Personal';
-import Business from './Business';
-import Developer from './Developer';
-import Help from './Help';
-import Login from './Login';
-import Signup from './Signup';
+import logo from '../Assets/Paypulptr.png';
+import '../Styles/NavBar.css';
+import Home from '../Pages/Home'
+import Personal from '../Pages/Personal';
+import Business from '../Pages/Business';
+import Developer from '../Pages/Developer';
+import Help from '../Pages/Help';
+import Login from '../Pages/Login';
+import Signup from '../Pages/Signup';
 
 export default function NavBar(){
 
@@ -18,7 +17,7 @@ export default function NavBar(){
             <nav>
                 <div className='NavBar'>
                     <NavLink to=''>
-                    <img src={logo2} width='210' height='70'/>
+                    <img src={logo} width='210' height='70'/>
                     </NavLink>
                     <NavLink to='/personal'>
                         <span>Personal</span>
@@ -33,7 +32,7 @@ export default function NavBar(){
                         <span>Help</span>
                     </NavLink>
                     <NavLink to='/login'>
-                        <button variant="outlined">Log In</button>
+                        <button className='button1' variant="outlined">Log In</button>
                     </NavLink>
                     <NavLink to='/signup'>
                         <button>Sign Up</button>
