@@ -1,14 +1,21 @@
 
 import '../Styles/Home.css';
+import photo from '../Assets/1._HOME.png';
 
 export default function Home () {
     return(
-        <div>
-            {/* <p>PayPulp es una plataforma de pagos en línea altamente segura y eficiente que ofrece una amplia variedad de opciones de pago a sus clientes. La seguridad de los datos de los clientes es una prioridad para PayPulp, por lo que utilizan tecnología de encriptación de última generación para proteger toda la información transmitida a través de su sitio web. Además, cuentan con un equipo de especialistas en seguridad que trabajan constantemente para garantizar la protección de los datos de los clientes.
-
-La plataforma de PayPulp es fácil de usar y ofrece un proceso de pago rápido y sin complicaciones. Además, brindan un servicio al cliente excepcional, comprometidos en resolver cualquier problema o inquietud de sus usuarios.
-
-En resumen, PayPulp es una opción confiable y segura para todas sus necesidades de pago en línea. Con un servicio al cliente excepcional y una plataforma fácil de usar, puede tener la tranquilidad de saber que sus transacciones están protegidas por los más altos estándares de seguridad.</p> */}
+        <div className='Home1'>
+            <h1 className='title'>Pay fast, Pay secure</h1><br/>
+            <div className='Home'>
+            <p className='text'>PayPulp is a secure and efficient online payment website that is dedicated to providing its customers with a positive experience.
+             The website utilizes measures to ensure that all transactions are safe and protected from fraud. Additionally,
+              the platform offers a variety of payment options, making it easy for customers to choose the method that works best for them. 
+              PayPulp is also committed to providing excellent customer service, 
+              with a dedicated support team available to assist with any questions or concerns. Overall, 
+              PayPulp is a reliable and trustworthy choice for anyone looking to make online payments.
+            </p>
+            <img className='photo' src={photo}/>
+            </div>
         </div>
     )
 }

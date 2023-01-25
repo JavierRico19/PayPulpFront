@@ -26,12 +26,9 @@ nav span:hover{
 }
 nav button{
     margin-left: 50px;
-    justify-content: right;
-    align-items: right;
     background-color: white;
     border-radius: 7px;
     border: 2px solid rgb(206, 206, 206);
-
     color:#0245A3;
     font-size: 15px;
     -webkit-transition-duration: 0.4s; 
