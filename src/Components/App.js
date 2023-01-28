@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-      <CssBaseline/>
+      {/* <CssBaseline/> */}
       <NavBar/>
       </BrowserRouter>
     </div>

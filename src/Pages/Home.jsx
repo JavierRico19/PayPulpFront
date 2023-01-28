@@ -14,7 +14,7 @@ export default function Home () {
               with a dedicated support team available to assist with any questions or concerns. Overall, 
               PayPulp is a reliable and trustworthy choice for anyone looking to make online payments.
             </p>
-            <img className='photo' src={photo}/>
+            <img className='photo1' src={photo}/>
             </div>
         </div>
     )
