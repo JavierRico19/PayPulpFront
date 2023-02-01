@@ -21,8 +21,7 @@
     border-radius: 50px;
     margin-left: 220px;
     position: relative;
-    bottom: 45px;
     right: 80px;
-    top: 60%;
-    transform: translate(0%, 9%);
+    top: 70%;
+    transform: translate(0%, 12%);
 }

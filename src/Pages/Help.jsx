@@ -1,18 +1,21 @@
-import photo from '../Assets/5._help_2.jpg';
+
 import '../Styles/Help.css';
-import { Routes, Route, NavLink } from 'react-router-dom';
-import { BrowserRouter } from 'react-router-dom';
 import { Accordion, AccordionSummary, AccordionDetails, Typography } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { useState } from 'react';
 
 export default function Help () {
+    const [expanded, setExpanded] = useState(false);
+
+    const handleChange = (panel) => (event, isExpanded) => {
+      setExpanded(isExpanded ? panel : false);
+    };
+
     return(
         <div className='divh'>
             <h1 className='titleh'>Common questions</h1>
             <div className='divh1'>
-            <Accordion className='Accordion' style={{
-
-            }}>
+            <Accordion className='Accordion' expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                 <AccordionSummary
                 id='panel1-header'
                 aria-controls='panel1-content'
@@ -29,7 +32,7 @@ export default function Help () {
                     </Typography>
                 </AccordionDetails>
             </Accordion>
-            <Accordion className='Accordion'>
+            <Accordion className='Accordion' expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
                 <AccordionSummary
                 id='panel2-header'
                 aria-controls='panel2-content'
@@ -46,7 +49,7 @@ export default function Help () {
                     </Typography>
                 </AccordionDetails>
             </Accordion>
-            <Accordion className='Accordion'>
+            <Accordion className='Accordion' expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
                 <AccordionSummary
                 id='panel3-header'
                 aria-controls='panel3-content'
@@ -65,7 +68,7 @@ export default function Help () {
                     </Typography>
                 </AccordionDetails>
             </Accordion>
-            <Accordion className='Accordion'>
+            <Accordion className='Accordion' expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
                 <AccordionSummary
                 id='panel4-header'
                 aria-controls='panel4-content'
