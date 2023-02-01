@@ -8,7 +8,6 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 nav span{
     margin: 1rem;
