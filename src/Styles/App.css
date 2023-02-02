@@ -5,8 +5,24 @@
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
-body {
+:root {
+  --bg-primary: #fefefe;
+  --bg-secondary: #0245a3ff;
+  --font-primary: #000000ff;
+  --font-secondary: #fefefe;
+  --light: #b7d3f2ff;
+  --mid: #2d898bff;
+  --green: #2d898bff;
 }
+
+/* :root .dark-mode {
+  --bg-primary: #0245a3ff;
+  --bg-secondary: #fefefe;
+  --font-primary: #fefefe;
+  --font-secondary: #000000ff;
+  --dark: #07689f;
+  --darkest: #05486e;
+} */
 
 #root {
   position: absolute;
