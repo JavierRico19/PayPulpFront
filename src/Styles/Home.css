@@ -1,56 +1,63 @@
-.hero{
-    display: grid;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+.hero {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
-.hero-title{
-  font-size: 2.5rem;
+.hero-title {
+  font-size: 3rem;
   align-self: end;
+  padding: 2rem 2rem 0 2rem;
 }
 
 .hero-title :last-child {
-    padding-left: 1em;
+  padding-left: 0.3em;
 }
- 
+
 .hero-text {
-    font-size: 1rem;
-    font-weight: 200;
-    line-height: 1rem;
-    padding: 1rem 0 0 1rem;
- }
+  font-size: 1rem;
+  font-weight: 200;
+  padding: 2rem 2rem 0 3rem;
+}
 
 .hero-image {
+  width: 100vw;
+  height: auto;
+  align-self: end;
+  max-width: 800px;
+  /* border-radius: 100%; */
+}
+
+@media (min-width: 800px) {
+  .hero {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 4fr;
+  }
+
+  .hero-title {
+    align-self: center;
+    justify-self: end;
+    font-size: 5rem;
+    grid-area: 2 / 1 / span 1 / span 1;
+  }
+
+  .hero-text {
+    grid-area: 3 / 1 / span 1 / span 1;
+    align-self: start;
+    justify-self: end;
+    max-width: 70%;
+    padding: 2rem;
+    font-size: 1.5rem;
+  }
+
+  .hero-image {
+    grid-area: 1 / 2 / 4 / 3;
     width: 80%;
     height: auto;
     align-self: center;
     justify-self: center;
     max-width: 800px;
     border-radius: 100%;
-}
-
-@media (min-width: 800px) {
-    .hero {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr 4fr;
-    }
-
-    .hero-title {
-        align-self: center;
-        justify-self: center;
-        font-size: 3.5rem;
-        grid-area: 2 / 1 / span 1 / span 1;
-    }
-
-    .hero-text {
-        grid-area: 3 / 1 / span 1 / span 1;
-        max-width: 60%;
-        align-self: start;
-        justify-self: center;
-    }
-
-    .hero-image {
-        grid-area: 1 / 2 / 4 / 3;
-    }
+  }
 }
