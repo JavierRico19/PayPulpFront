@@ -1,94 +1,97 @@
 nav {
-  background-color: #0245a3;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 4px;
+  height: 4rem;
+  background-color: var(--bg-secondary);
+  box-shadow: 0px 5px 5px #00000025;
 }
 
 .logo {
-    width: 10rem;
+  width: 10rem;
 }
 
 .menu-icon {
-    padding: 0 1rem 0 0;
-    color: #fff;
-    cursor: pointer;
+  padding: 0 1rem 0 0;
+  color: var(--font-secondary);
+  cursor: pointer;
 }
 
 .nav-menu-mobile {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 50%;
-    flex-direction: column;
-    padding: 10px 20px;
-    background-color: #0245a3;
-    transition: all 1s ease-in-out;
+  position: absolute;
+  top: 4rem;
+  bottom: 0;
+  right: 0;
+  left: 50%;
+  flex-direction: column;
+  padding: 10px 20px;
+  background-color: var(--bg-secondary);
+  transition: all 1s ease-in-out;
+  z-index: 10;
 }
 
 .nav-menu-hide {
-    visibility: hidden;
-    transform: translateX(50vw);
+  /* visibility: hidden; */
+  transform: translateX(50vw);
 }
 
 .nav-menu-show {
-    visibility: visible;
-    transform: translateX(0vw);
+  visibility: visible;
+  transform: translateX(0vw);
 }
 
 .nav-menu-desktop {
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
-    width: 70%;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 70%;
 }
 
 .nav-links {
-    display: flex;
-    gap: 2rem;
+  display: flex;
+  gap: 2rem;
 }
 
 .nav-menu-mobile span,
 .nav-menu-desktop span {
-    color: #fff;
-    font-size: 1.5rem;
-    font-weight: 300;
-    padding: .5rem 0;
+  color: var(--font-secondary);
+  font-size: 1.5rem;
+  font-weight: 300;
+  padding: 0.5rem 0;
 }
 
 .nav-menu-mobile .auth-btns {
-    width: 100%;
+  width: 100%;
 }
 .nav-menu-desktop .auth-btns {
-    width: 100px;
+  width: 100px;
 }
 
 .nav-menu-desktop .auth-btns-container {
-    display: flex;
-    gap: 2rem;
-    padding: 0 2rem;
+  display: flex;
+  gap: 2rem;
+  padding: 0 2rem;
 }
 
 .auth-btns {
-    font-size: 1.2rem;
-    margin: .5rem 0;
-    padding: .25rem 0;
-    border: 1px solid white;
-    border-radius: 1rem;
-    transition: all .2s ease-in;
-    cursor: pointer;
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  padding: 0.25rem 0;
+  border: 1px solid var(--font-secondary);
+  border-radius: 1rem;
+  transition: all 0.2s ease-in;
+  cursor: pointer;
 }
 
 .login-btn {
-    font-weight: 300;
-    background-color: #ffffff00;
-    color:#fff;
+  font-weight: 300;
+  background-color: #ffffff00;
+  color: var(--font-secondary);
 }
 
 .signup-btn {
-    font-weight: 400;
-    background-color: #ffffff;
-    color: #0245a3;
+  font-weight: 400;
+  background-color: var(--bg-primary);
+  color: var(--bg-secondary);
 }

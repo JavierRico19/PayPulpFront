@@ -17,13 +17,13 @@ function App() {
   const [showMenu, setShowMenu] = useState(false);
   // use custom hook to get viewport width
   const { width } = useWindowSize();
+  console.log(width)
 
   return (
     <BrowserRouter>
       <NavBar showMenu={showMenu} setShowMenu={setShowMenu} />
+      {width < 800 && <NavMenu showMenu={showMenu} width={width} />}
       <div className="main">
-        {width < 800 && <NavMenu showMenu={showMenu} width={width} />}
-
         <Routes>
           <Route path="" element={<Home />} />
           <Route path="Personal" element={<Personal />} />

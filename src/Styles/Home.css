@@ -1,41 +1,56 @@
-.Home1{
-    background-color: rgb(241, 241, 238);
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-left: 30px;
-    margin-right: 30px;
-    border-radius: 30px;
-    padding-bottom: 35px;
-    height: 77.35vh;
+.hero{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
-.Home{
-    display: flex;
-    flex-direction: row;
-}
-.title{
-    margin-left: 30px;
-    position: relative;
-    top: 35px;
-    left: 20px;
-}
-.title2{
-    margin-left: 100px;
-}
-.photo1{
-    border-radius: 50px;
-    margin-left: 280px;
-    position: relative;
-    bottom: 10px;
-    right: 100px;
-    top: 50%;
-    transform: translate(0%, 8%);
-    padding-bottom: 20px;
-}
-.text{
-   position: relative;
-   left:49px;
-   top: 30px;
-   font-size: 20px;
-   line-height: 30px;
 
+.hero-title{
+  font-size: 2.5rem;
+  align-self: end;
+}
+
+.hero-title :last-child {
+    padding-left: 1em;
+}
+ 
+.hero-text {
+    font-size: 1rem;
+    font-weight: 200;
+    line-height: 1rem;
+    padding: 1rem 0 0 1rem;
+ }
+
+.hero-image {
+    width: 80%;
+    height: auto;
+    align-self: center;
+    justify-self: center;
+    max-width: 800px;
+    border-radius: 100%;
+}
+
+@media (min-width: 800px) {
+    .hero {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 4fr;
+    }
+
+    .hero-title {
+        align-self: center;
+        justify-self: center;
+        font-size: 3.5rem;
+        grid-area: 2 / 1 / span 1 / span 1;
+    }
+
+    .hero-text {
+        grid-area: 3 / 1 / span 1 / span 1;
+        max-width: 60%;
+        align-self: start;
+        justify-self: center;
+    }
+
+    .hero-image {
+        grid-area: 1 / 2 / 4 / 3;
+    }
 }
