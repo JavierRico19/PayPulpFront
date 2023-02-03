@@ -32,7 +32,6 @@ nav {
 }
 
 .nav-menu-hide {
-  /* visibility: hidden; */
   transform: translateX(50vw);
 }
 

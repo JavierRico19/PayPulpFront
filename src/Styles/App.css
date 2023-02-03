@@ -31,13 +31,12 @@
   overflow: hidden;
 }
 
-.main {
+main {
   display: flex;
   flex-direction: column;
   position: relative;
   max-width: 100vw;
   height: calc(100% - 4rem);
-  /* padding: 2rem; */
   background-color: var(--bg-color);
   overflow-y: scroll;
 }

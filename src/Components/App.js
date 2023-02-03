@@ -23,7 +23,7 @@ function App() {
     <BrowserRouter>
       <NavBar showMenu={showMenu} setShowMenu={setShowMenu} />
       {width < 800 && <NavMenu showMenu={showMenu} width={width} />}
-      <div className="main">
+      <main>
         <Routes>
           <Route path="" element={<Home />} />
           <Route path="Personal" element={<Personal />} />
@@ -33,7 +33,7 @@ function App() {
           <Route path="Login" element={<Login />} />
           <Route path="Signup" element={<Signup />} />
         </Routes>
-      </div>
+      </main>
     </BrowserRouter>
   );
 }
