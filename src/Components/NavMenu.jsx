@@ -25,10 +25,10 @@ function NavMenu({ showMenu, width }) {
       </div>
       <div className="auth-btns-container">
         <NavLink to="/login">
-          <button className="auth-btns login-btn">Log In</button>
+          <button className="round-btns blue-btn">Log In</button>
         </NavLink>
         <NavLink to="/signup">
-          <button className="auth-btns signup-btn">Sign Up</button>
+          <button className="round-btns white-btn">Sign Up</button>
         </NavLink>
       </div>
     </div>

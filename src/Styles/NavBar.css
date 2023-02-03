@@ -40,6 +40,7 @@ nav {
   transform: translateX(0vw);
 }
 
+/* un poco chapucero */
 .nav-menu-desktop {
   display: flex;
   justify-content: space-between;
@@ -60,10 +61,10 @@ nav {
   padding: 0.5rem 0;
 }
 
-.nav-menu-mobile .auth-btns {
+.nav-menu-mobile .round-btns {
   width: 100%;
 }
-.nav-menu-desktop .auth-btns {
+.nav-menu-desktop .round-btns {
   width: 100px;
 }
 
@@ -71,26 +72,4 @@ nav {
   display: flex;
   gap: 2rem;
   padding: 0 2rem;
-}
-
-.auth-btns {
-  font-size: 1.2rem;
-  margin: 0.5rem 0;
-  padding: 0.25rem 0;
-  border: 1px solid var(--font-secondary);
-  border-radius: 1rem;
-  transition: all 0.2s ease-in;
-  cursor: pointer;
-}
-
-.login-btn {
-  font-weight: 300;
-  background-color: #ffffff00;
-  color: var(--font-secondary);
-}
-
-.signup-btn {
-  font-weight: 400;
-  background-color: var(--bg-primary);
-  color: var(--bg-secondary);
 }

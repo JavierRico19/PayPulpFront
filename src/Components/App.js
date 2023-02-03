@@ -17,7 +17,6 @@ function App() {
   const [showMenu, setShowMenu] = useState(false);
   // use custom hook to get viewport width
   const { width } = useWindowSize();
-  console.log(width)
 
   return (
     <BrowserRouter>
