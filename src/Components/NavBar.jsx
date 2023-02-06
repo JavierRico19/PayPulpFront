@@ -1,61 +1,38 @@
-import React, { Fragment } from 'react';
-import { Routes, Route, NavLink, Router } from 'react-router-dom';
-import logo from '../Assets/Paypulptr.png';
-import '../Styles/NavBar.css';
-import Home from '../Pages/Home'
-import Personal from '../Pages/Personal';
-import Business from '../Pages/Business';
-import Developer from '../Pages/Developer';
-import Help from '../Pages/Help';
-import Login from '../Pages/Login';
-import Signup from '../Pages/Signup';
+import MenuOpenIcon from "@mui/icons-material/MenuOpen";
+import { ClickAwayListener } from "@mui/material";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import Logo from "../Assets/Paypulptr.png";
+import useWindowSize from "../Hooks/useWindowSize.js";
+import "../Styles/NavBar.css";
+import NavMenu from "./NavMenu";
 
 export default function NavBar() {
+  // toggle mobile menu
+  const [showMenu, setShowMenu] = useState(false);
+  // get viewport width
+  const { width } = useWindowSize();
 
-    return (
-        <div>
-            <nav>
-                <div className='NavBar'>
-                    <div className='logo'>
-                    <NavLink to=''>
-                        <img src={logo} width='210' height='70' />
-                    </NavLink>
-                    </div>
-                    <div className='navboth'>
-                        <div className='nav1'>
-                            <NavLink to='/personal'>
-                                <span>Personal</span>
-                            </NavLink>
-                            <NavLink to='/business'>
-                                <span>Business</span>
-                            </NavLink>
-                            <NavLink to='/developer'>
-                                <span>Developer</span>
-                            </NavLink>
-                            <NavLink to='/help'>
-                                <span>Help</span>
-                            </NavLink>
-                        </div>
-                        <div className='nav2'>
-                            <NavLink to='/login'>
-                                <button className='button1' variant="outlined">Log In</button>
-                            </NavLink>
-                            <NavLink to='/signup'>
-                                <button>Sign Up</button>
-                            </NavLink>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-            <Routes>
-                <Route path='' element={<Home />} />
-                <Route path='Personal' element={<Personal />} />
-                <Route path='Business' element={<Business />} />
-                <Route path='Developer' element={<Developer />} />
-                <Route path='Help' element={<Help />} />
-                <Route path='Login' element={<Login />} />
-                <Route path='Signup' element={<Signup />} />
-            </Routes>
-        </div>
-    )
+  /**
+   * - ClickAwayListener close mobile menu on click outside navbar
+   * - nav onClick close mobile menu on click inside
+   * - MenuOpenIcon only displays on mobile
+   */
+  return (
+    <ClickAwayListener onClickAway={() => setShowMenu(false)}>
+      <nav onClick={() => showMenu === true && setShowMenu(!showMenu)}>
+        <NavLink to="/">
+          <img className="logo" src={Logo} alt="PayPulp logo" />
+        </NavLink>
+        {width < 800 && (
+          <MenuOpenIcon
+            className="menu-icon"
+            fontSize="large"
+            onClick={() => setShowMenu(true)}
+          />
+        )}
+        <NavMenu showMenu={showMenu} setShowMenu={setShowMenu} width={width} />
+      </nav>
+    </ClickAwayListener>
+  );
 }

@@ -12,24 +12,7 @@
 .p{
     margin-left: 38%;
 }
-button{
-    margin-left: 32%;
-    background-color: white;
-    border-radius: 7px;
-    border: 2px solid rgb(206, 206, 206);
-    color:#0245A3;
-    font-size: 15px;
-    -webkit-transition-duration: 0.4s; 
-    transition-duration: 0.4s;
-    height: 30px;
-}
-button:hover{
-    background-color: wheat;
 
-}
-button:active{
-    transform: translateY(3px);
-}
 input{
     margin-left: 20%;
 }
