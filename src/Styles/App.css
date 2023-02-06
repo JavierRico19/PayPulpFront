@@ -13,8 +13,8 @@
   --font-primary: #000000ff;
   --font-secondary: #fefefe;
   --light: #e3ebf277;
-  --mid: #2d898bff;
-  --green: #2d898bff;
+  --mid: #d5d5d5;
+  --light-blue: rgb(51, 96, 159);
 }
 
 /* :root .dark-mode {
@@ -54,6 +54,10 @@ main {
   cursor: pointer;
 }
 
+.round-btns:disabled {
+  color: var(--mid);
+}
+
 .blue-btn {
   font-weight: 300;
   background-color: var(--bg-secondary);
@@ -69,4 +73,15 @@ main {
 .btn-on-main {
   border: 1px solid var(--bg-secondary);
   width: 100px;
+}
+
+input {
+  border: none;
+  outline: 2px solid var(--mid);
+  border-radius: 6px;
+  transition: all ease-in .3s;
+}
+
+input:focus {
+  outline: 2px solid var(--light-blue);
 }

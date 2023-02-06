@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import useWindowSize from "../Hooks/useWindowSize.js";
 import Business from "../Pages/Business";
 import Developer from "../Pages/Developer";
 import Help from "../Pages/Help";
@@ -7,10 +8,9 @@ import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import Personal from "../Pages/Personal";
 import Signup from "../Pages/Signup";
+import "../Styles/App.css";
 import NavBar from "./NavBar";
 import NavMenu from "./NavMenu";
-import useWindowSize from "../Hooks/useWindowSize.js";
-import "../Styles/App.css";
 
 function App() {
   // use state to toggle mobile menu
