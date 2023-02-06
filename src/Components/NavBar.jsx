@@ -7,7 +7,7 @@ import NavMenu from "./NavMenu";
 
 export default function NavBar({ showMenu, setShowMenu }) {
   const { width } = useWindowSize();
-
+  
   return (
     <>
       <nav>
