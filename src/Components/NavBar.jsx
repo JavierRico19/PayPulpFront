@@ -8,30 +8,31 @@ import "../Styles/NavBar.css";
 import NavMenu from "./NavMenu";
 
 export default function NavBar() {
+  // toggle mobile menu
   const [showMenu, setShowMenu] = useState(false);
+  // get viewport width
   const { width } = useWindowSize();
 
+  /**
+   * - ClickAwayListener close mobile menu on click outside navbar
+   * - nav onClick close mobile menu on click inside
+   * - MenuOpenIcon only displays on mobile
+   */
   return (
-    <>
-      <nav>
+    <ClickAwayListener onClickAway={() => setShowMenu(false)}>
+      <nav onClick={() => showMenu === true && setShowMenu(!showMenu)}>
         <NavLink to="/">
           <img className="logo" src={Logo} alt="PayPulp logo" />
         </NavLink>
-        {width < 800 ? (
-          <ClickAwayListener onClickAway={() => setShowMenu(false)}>
-            <div onClick={() => setShowMenu(!showMenu)}>
-              <MenuOpenIcon className="menu-icon" fontSize="large" />
-              <NavMenu
-                showMenu={showMenu}
-                setShowMenu={setShowMenu}
-                width={width}
-              />
-            </div>
-          </ClickAwayListener>
-        ) : (
-          <NavMenu width={width} />
+        {width < 800 && (
+          <MenuOpenIcon
+            className="menu-icon"
+            fontSize="large"
+            onClick={() => setShowMenu(true)}
+          />
         )}
+        <NavMenu showMenu={showMenu} setShowMenu={setShowMenu} width={width} />
       </nav>
-    </>
+    </ClickAwayListener>
   );
 }
