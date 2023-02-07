@@ -1,9 +1,12 @@
 import { useForm } from "react-hook-form";
-import Auth from "../Services/Auth";
+import { useLoaderData } from "react-router-dom";
 import Logo from "../Assets/logo-blue.png";
+import LoginCard from "../Components/LoginCard";
+import Auth from "../Services/Auth";
 import "../Styles/Auth.css";
 
-const Login = () => {
+const Login = ({ setIsAuth, setUser, setError }) => {
+  const params = useLoaderData();
   const {
     register,
     handleSubmit,
@@ -17,37 +20,38 @@ const Login = () => {
   });
 
   const onSubmit = async (userData) => {
-    const res = await Auth.login(userData);
-    console.log(res);
+    try {
+      // const res = await Auth.login(userData);
+    } catch (error) {
+      setError(true);
+    }
+    // -- if user auth ok & on main app --
+    // if (res === 200 && !params.isOnGateway) {
+    //   redirect("/dashboard");
+    // };
+
+    // -- user auth ok & external redirect --
+    // -- -- userUuid depends on final bakend response
+    // if (res === 200 && params.isOnGateway) {
+    //   const { productUuid, redirUrl } = params;
+    //   redirect(`/gateway/payment/${productUuid}/${redirUrl}/${res.userUuid}`)
+    // };
+    if (true) {
+      setIsAuth(true);
+      setUser("abcd");
+      // setError(true);
+    };
   };
 
   return (
     <div className="auth">
       <img className="login-logo" src={Logo} alt="PayPulp logo" />
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <section className="auth-card">
-          <label htmlFor="email">Email</label>
-          <input
-            className={`text-input ${errors.email && "input-error"}`}
-            type="text"
-            {...register("email")}
-          />
-          <label htmlFor="password">Password</label>
-          <input
-            className={`text-input ${errors.password && "input-error"}`}
-            type="password"
-            {...register("password")}
-          />
-          <div className="auth-btns">
-            <button
-              className="round-btns blue-btn btn-on-main"
-              onClick={handleSubmit}
-            >
-              Login
-            </button>
-          </div>
-        </section>
-      </form>
+      <LoginCard
+        register={register}
+        handleSubmit={handleSubmit}
+        onSubmit={onSubmit}
+        errors={errors}
+      />
     </div>
   );
 };

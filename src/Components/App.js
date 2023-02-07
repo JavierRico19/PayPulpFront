@@ -4,11 +4,12 @@ import Developer from "../Pages/Developer";
 import Help from "../Pages/Help";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
+import PaymentView from "../Pages/PaymentView";
 import Personal from "../Pages/Personal";
 import Signup from "../Pages/Signup";
 import "../Styles/App.css";
+import ConfirmPurchase from "./ConfirmPurchase";
 import MainApp from "./MainApp";
-import PaymentView from "./PaymentView";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,7 @@ const router = createBrowserRouter([
       },
       {
         path: "login",
+        loader: ({params}) => params = { isOnGateway: false},
         element: <Login />,
       },
       {
@@ -47,9 +49,9 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "gateway/:id",
-    loader: ({params}) => params,
-    element: <PaymentView />
+    path: "gateway/:productUuid/:redirUrl",
+    loader: ({params}) => params = { ...params, isOnGateway: true},
+    element: <PaymentView />,
   },
 ]);
 
