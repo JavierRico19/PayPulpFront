@@ -1,0 +1,31 @@
+import { Outlet, Route, Routes } from "react-router-dom";
+import Business from "../Pages/Business";
+import Developer from "../Pages/Developer";
+import Help from "../Pages/Help";
+import Home from "../Pages/Home";
+import Login from "../Pages/Login";
+import Personal from "../Pages/Personal";
+import Signup from "../Pages/Signup";
+import NavBar from "./NavBar";
+import PaymentView from "./PaymentView";
+
+const MainApp = () => {
+  return (
+    <main>
+      <NavBar />
+        {/* <Routes>
+          <Route path="" element={<Home />} />
+          <Route path="Personal" element={<Personal />} />
+          <Route path="Business" element={<Business />} />
+          <Route path="Developer" element={<Developer />} />
+          <Route path="Help" element={<Help />} />
+          <Route path="Login" element={<Login />} />
+          <Route path="Signup" element={<Signup />} />
+          
+        </Routes> */}
+        <Outlet />
+      </main>
+  )
+}
+
+export default MainApp
