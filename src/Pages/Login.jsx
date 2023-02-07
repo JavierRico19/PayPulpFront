@@ -1,15 +1,53 @@
-import '../Styles/Login.css';
-import logo from '../Assets/logo-blue.png';
+import "../Styles/Auth.css";
+import Logo from "../Assets/logo-blue.png";
+import { useForm } from "react-hook-form";
 
-export default function Login () {
-    return(
-        <div className='form'>
-            <form>
-                <img src={logo} width='70' height='70'/>
-                <p className='p'>Email</p><input type='text' placeholder='Email Adress'/>
-                <p className='p'>Password</p><input type='password' placeholder='Password'/><br/>
-                <button onSubmit='' placeholder='Log In'>Log in</button>
-            </form>
-        </div>
-    )
-}
+const Login = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    mode: "onTouched",
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
+  return (
+    <div className="auth">
+      <img className="login-logo" src={Logo} alt="PayPulp logo" />
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <section className="auth-card">
+          <label htmlFor="email">Email</label>
+          <input
+            className={`text-input ${errors.email && "input-error"}`}
+            type="text"
+            {...register("email")}
+          />
+          <label htmlFor="password">Password</label>
+          <input
+            className={`text-input ${errors.password && "input-error"}`}
+            type="password"
+            {...register("password")}
+          />
+          <div className="auth-btns">
+            <button
+              className="round-btns blue-btn btn-on-main"
+              onClick={handleSubmit}
+            >
+              Login
+            </button>
+          </div>
+        </section>
+      </form>
+    </div>
+  );
+};
+
+export default Login;

@@ -1,4 +1,4 @@
-.signup {
+.auth {
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -8,11 +8,11 @@
   /* justify-content: space-evenly; */
 }
 
-.signup-title {
+.auth-title {
   padding: 3rem 0;
 }
 
-.signup-card {
+.auth-card {
   display: flex;
   flex-direction: column;
   height: 500px;
@@ -22,17 +22,19 @@
   background-color: var(--light);
 }
 
-.signup div {
+.auth div {
   padding: 1rem .5rem;
 }
 
-.signup-btns {
+.auth-card p {
+  color: #fda2a2;
+}
+
+.auth-btns {
   display: flex;
   justify-content: space-evenly;
   margin: 2rem 0;
 }
-
-
 
 .text-input {
   width: 250px;

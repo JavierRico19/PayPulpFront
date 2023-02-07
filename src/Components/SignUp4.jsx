@@ -1,7 +1,7 @@
 const SignUp4 = ({ register, setPage, errors, isValid, handleSubmit }) => {
   return (
     <>
-      <section className="signup-card">
+      <section className="auth-card">
         <label htmlFor="securityQuestion">Security question:</label>
         <input
           className={`text-input ${errors.securityQuestion && "input-error"}`}
@@ -37,7 +37,7 @@ const SignUp4 = ({ register, setPage, errors, isValid, handleSubmit }) => {
         />
         <p>{errors.securityAnswer?.message}</p>
 
-        <div className="signup-btns">
+        <div className="auth-btns">
           <button
             className="round-btns blue-btn btn-on-main"
             onClick={() => setPage(3)}

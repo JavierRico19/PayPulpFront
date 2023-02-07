@@ -1,9 +1,7 @@
-import { useEffect } from "react";
-
 const SignUp3 = ({ register, setPage, errors, isValid }) => {
   return (
     <>
-      <section className="signup-card">
+      <section className="auth-card">
         {/* <label htmlFor="birthDate">Date of birth:</label>
         <input
         className={`text-input ${errors.birthDate && "input-error"}`}
@@ -69,7 +67,7 @@ const SignUp3 = ({ register, setPage, errors, isValid }) => {
         />
         <p>{errors.country?.message}</p>
 
-        <div className="signup-btns">
+        <div className="auth-btns">
           <button
             className="round-btns blue-btn btn-on-main"
             onClick={() => setPage(2)}

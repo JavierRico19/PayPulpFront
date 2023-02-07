@@ -6,7 +6,7 @@ const SignUp1 = ({ setPage, setAccountType }) => {
 
   return (
     <>
-      <section className="signup-card">
+      <section className="auth-card">
         <div>It is free to sign up to PayPulp!</div>
         <div>Choose an account that suits your needs:</div>
         <div>-Personal Account Shop safely in millions of online shops.</div>
@@ -14,7 +14,7 @@ const SignUp1 = ({ setPage, setAccountType }) => {
           -Business Account Get paid online or offline. Set-up is easy. Your
           buyers don&apos;t need a PayPal account to pay you.
         </div>
-        <div className="signup-btns">
+        <div className="auth-btns">
           <button
             className="round-btns blue-btn btn-on-main"
             onClick={() => startSignup("personal")}

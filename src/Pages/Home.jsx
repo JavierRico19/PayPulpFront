@@ -1,14 +1,14 @@
-import "../Styles/Home.css";
+import "../Styles/HomeAndInfo.css";
 import Photo from "../Assets/1._HOME.png";
 
 export default function Home() {
   return (
-    <div className="main">
-      <h1 className="main-title">
+    <div className="home">
+      <h1 className="home-title">
         <div>Pay fast,</div>
         <div>Pay secure.</div>
       </h1>
-      <p className="main-text">
+      <p className="home-text">
         PayPulp is a secure and efficient online payment website that is
         dedicated to providing its customers with a positive experience. 
         {/* The
@@ -22,7 +22,7 @@ export default function Home() {
           and trustworthy choice for anyone looking to make online payments. */}
       </p>
       <img
-        className="main-image"
+        className="home-image"
         src={Photo}
         alt={"woman happy to pay with PayPulp"}
       />
