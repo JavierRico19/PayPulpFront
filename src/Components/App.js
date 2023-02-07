@@ -47,7 +47,8 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "gateway",
+    path: "gateway/:id",
+    loader: ({params}) => params,
     element: <PaymentView />
   },
 ]);
