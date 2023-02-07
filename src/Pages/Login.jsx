@@ -1,6 +1,7 @@
-import "../Styles/Auth.css";
-import Logo from "../Assets/logo-blue.png";
 import { useForm } from "react-hook-form";
+import Auth from "../Services/Auth";
+import Logo from "../Assets/logo-blue.png";
+import "../Styles/Auth.css";
 
 const Login = () => {
   const {
@@ -15,8 +16,9 @@ const Login = () => {
     },
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (userData) => {
+    const res = await Auth.login(userData);
+    console.log(res);
   };
 
   return (
