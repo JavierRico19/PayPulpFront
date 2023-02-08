@@ -1,6 +1,6 @@
-import axios from "axios";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import CryptoJS from "crypto-js";
 import SignUp1 from "../Components/SignUp1";
 import SignUp2 from "../Components/SignUp2";
 import SignUp3 from "../Components/SignUp3";
@@ -46,12 +46,21 @@ export default function Signup() {
 
   // set submitting dialog and make post request
   const onSubmit = async (data) => {
+    if (data) {
+      delete data.confirmPassword;
+      let encrypted = CryptoJS.MD5(data.password, "secret").toString();
+      data = {
+        ...data,
+        password: encrypted,
+      }
+    }
+    console.log(data)
     try {
       setSubmitting("waiting");
-      const res = await axios.post("http://localhost:3300/api/user");
-      if (res.status === 200) {
-        setSubmitting("success");
-      }
+      // const res = await axios.post("http://localhost:3300/api/user");
+      // if (res.status === 200) {
+      //   setSubmitting("success");
+      // }
       setSubmitting(null);
     } catch (error) {
       setSubmitting("error");
