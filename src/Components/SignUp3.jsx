@@ -14,6 +14,20 @@ const SignUp3 = ({ register, setPage, errors, isValid }) => {
           })}
         />
         <p>{errors.birthDate?.message}</p> */}
+        <label htmlFor="phone">Phone number:</label>
+        <input
+          className={`text-input ${errors.phone && "input-error"}`}
+          type="text"
+          {...register("phone", {
+            required: "Field required",
+            maxLength: {
+              value: 20,
+              message: "This field should be less than 20 characters long",
+            },
+            pattern: { value: /^\d+$/, message: "Not a valid phone format" },
+          })}
+        />
+        <p>{errors.phone?.message}</p>
         <label htmlFor="address">Address:</label>
         <input
           className={`text-input ${errors.address && "input-error"}`}

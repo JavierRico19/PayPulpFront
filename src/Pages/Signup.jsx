@@ -27,6 +27,7 @@ export default function Signup() {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors, isValid },
   } = useForm({
     mode: "onTouched",
@@ -81,6 +82,7 @@ export default function Signup() {
               <SignUp2
                 setPage={setPage}
                 register={register}
+                watch={watch}
                 errors={errors}
                 isValid={isValid}
               />

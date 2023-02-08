@@ -1,4 +1,4 @@
-const SignUp2 = ({ register, setPage, errors, isValid }) => {
+const SignUp2 = ({ register, setPage, watch, errors, isValid }) => {
   return (
     <>
       <section className="auth-card">
@@ -55,20 +55,42 @@ const SignUp2 = ({ register, setPage, errors, isValid }) => {
           })}
         />
         <p>{errors.email?.message}</p>
-        <label htmlFor="phone">Phone number:</label>
+        <label htmlFor="password">Password:</label>
         <input
-          className={`text-input ${errors.phone && "input-error"}`}
+          className={`text-input ${errors.password && "input-error"}`}
           type="text"
-          {...register("phone", {
+          {...register("password", {
             required: "Field required",
+            minLength: {
+              value: 8,
+              message: "Password needs to be more than 8 characters",
+            },
             maxLength: {
               value: 20,
-              message: "This field should be less than 20 characters long",
+              message: "Password needs to be less than 20 characters",
             },
-            pattern: { value: /^\d+$/, message: "Not a valid phone format" },
+            pattern: {
+              value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
+              message: "Password needs at least one uppercase and one lowercase letter and one number",
+            },
           })}
         />
-        <p>{errors.phone?.message}</p>
+        <p>{errors.password?.message}</p>
+        <label htmlFor="confirmPassword">Confirm password:</label>
+        <input
+          className={`text-input ${errors.confirmPassword && "input-error"}`}
+          type="text"
+          {...register("confirmPassword", {
+            required: "Please confirm your password",
+            pattern: {
+              value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/,
+              message: "Password doesn't match",
+            },
+            validate: value => value === watch("password"),
+          })}
+        />
+        <p>{errors.confirmPassword?.message}</p>
+        
 
         <div className="auth-btns">
           <button
