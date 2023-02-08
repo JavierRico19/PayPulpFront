@@ -21,7 +21,7 @@ export default function NavBar() {
   return (
     <ClickAwayListener onClickAway={() => setShowMenu(false)}>
       <nav onClick={() => showMenu === true && setShowMenu(!showMenu)}>
-        <NavLink to="/">
+        <NavLink to="">
           <img className="logo" src={Logo} alt="PayPulp logo" />
         </NavLink>
         {width < 800 && (

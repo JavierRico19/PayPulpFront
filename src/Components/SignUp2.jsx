@@ -1,7 +1,7 @@
 const SignUp2 = ({ register, setPage, errors, isValid }) => {
   return (
     <>
-      <section className="signup-card">
+      <section className="auth-card">
         <label htmlFor="firstName">First name:</label>
         <input
           className={`text-input ${errors.firstName && "input-error"}`}
@@ -70,7 +70,7 @@ const SignUp2 = ({ register, setPage, errors, isValid }) => {
         />
         <p>{errors.phone?.message}</p>
 
-        <div className="signup-btns">
+        <div className="auth-btns">
           <button
             className="round-btns blue-btn btn-on-main"
             onClick={() => setPage(1)}

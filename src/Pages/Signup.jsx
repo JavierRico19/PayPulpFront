@@ -6,7 +6,7 @@ import SignUp2 from "../Components/SignUp2";
 import SignUp3 from "../Components/SignUp3";
 import SignUp4 from "../Components/SignUp4";
 import Submitting from "../Components/Submitting";
-import "../Styles/Signup.css";
+import "../Styles/Auth.css";
 
 export default function Signup() {
   // multi-page form
@@ -58,12 +58,20 @@ export default function Signup() {
     }
   };
 
+  // reset 
+  const goBack = () => {
+    console.log("goback")
+    setPage(1);
+    setAccountType(null);
+    setSubmitting(null);
+  }
+
   return (
     <>
-      <div className="signup">
-        <h2 className="signup-title">Sign up</h2>
+      <div className="auth">
+        <h2 className="auth-title">Sign up</h2>
         {submitting ? (
-          <Submitting submitState={submitting} setPage={setPage} />
+          <Submitting submitState={submitting} goBack={goBack} location="signup" />
         ) : (
           <form onSubmit={handleSubmit(onSubmit)}>
             {page === 1 && (

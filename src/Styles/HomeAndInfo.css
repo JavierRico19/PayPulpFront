@@ -1,27 +1,27 @@
-.main {
+.home {
   display: grid;
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
 
-.main-title {
+.home-title {
   font-size: 3rem;
   align-self: end;
   padding: 2rem 2rem 0 2rem;
 }
 
-.main-title :last-child {
+.home-title :last-child {
   padding-left: 0.3em;
 }
 
-.main-text {
+.home-text {
   font-size: 1rem;
   font-weight: 200;
   padding: 2rem 2rem 0 3rem;
 }
 
-.main-image {
+.home-image {
   width: 100vw;
   height: auto;
   align-self: end;
@@ -29,19 +29,19 @@
 }
 
 @media (min-width: 800px) {
-  .main {
+  .home {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 4fr;
   }
 
-  .main-title {
+  .home-title {
     align-self: center;
     justify-self: end;
     font-size: 5rem;
     grid-area: 2 / 1 / span 1 / span 1;
   }
 
-  .main-text {
+  .home-text {
     grid-area: 3 / 1 / span 1 / span 1;
     align-self: start;
     justify-self: end;
@@ -50,7 +50,7 @@
     font-size: 1.5rem;
   }
 
-  .main-image {
+  .home-image {
     grid-area: 1 / 2 / 4 / 3;
     width: 80%;
     height: auto;

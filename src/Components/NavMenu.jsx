@@ -10,24 +10,24 @@ function NavMenu({ showMenu, setShowMenu, width }) {
         }
       >
         <div className={width > 800 ? "nav-links" : null}>
-          <NavLink to="/personal">
+          <NavLink to="personal">
             <span>Personal</span>
           </NavLink>
-          <NavLink to="/business">
+          <NavLink to="business">
             <span>Business</span>
           </NavLink>
-          <NavLink to="/developer">
+          <NavLink to="developer">
             <span>Developer</span>
           </NavLink>
-          <NavLink to="/help">
+          <NavLink to="help">
             <span>Help</span>
           </NavLink>
         </div>
         <div className="auth-btns-container">
-          <NavLink to="/login">
+          <NavLink to="login">
             <button className="round-btns blue-btn">Log In</button>
           </NavLink>
-          <NavLink to="/signup">
+          <NavLink to="signup">
             <button className="round-btns white-btn">Sign Up</button>
           </NavLink>
         </div>
