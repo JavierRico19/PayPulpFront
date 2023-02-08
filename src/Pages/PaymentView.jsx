@@ -26,17 +26,15 @@ const PaymentView = () => {
     }
 
     if (submitState === "success") {
-      const redirUrl = searchParams.get("redirecturl");
-      console.log(redirUrl);
-      setTimeout(window.location.replace(`http://${redirUrl}`), 4000);
+      // const redirUrl = searchParams.get("redirecturl");
+      // const redirection = () => window.location.replace(`http://${redirUrl}`);
+      setTimeout(goBack, 4000);
     }
   }, [isAuth, submitState]);
 
   const goBack = () => {
-    setIsAuth(false);
-    setProduct(null);
-    setUser(null);
-    setSubmitState(null);
+    const redirUrl = searchParams.get("redirecturl");
+    window.location.replace(`http://${redirUrl}`);
   };
 
   return (
@@ -60,6 +58,12 @@ const PaymentView = () => {
           goBack={goBack}
           location="gateway"
         />
+      )}
+      {submitState === "success" && (
+        <>
+          <div>If you're not redirected after 4 seconds click here:</div>
+          <button onClick={goBack}>Leave this place</button>
+        </>
       )}
     </div>
   );
