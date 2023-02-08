@@ -5,8 +5,8 @@ const ConfirmPurchase = ({ product, user, setSubmitState }) => {
   const confirmPayment =  () => {
     setSubmitState("waiting");
     try {
-      const rat = () =>  setSubmitState("success");
-      setTimeout(rat, 3000)
+      const fakeWait = () =>  setSubmitState("success");
+      setTimeout(fakeWait, 3000)
       // const res =  Gateway.confirmPayment(product.uuid, user.paymethod, user.uuid)
       
     } catch (error) {
