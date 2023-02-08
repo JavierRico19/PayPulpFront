@@ -58,12 +58,20 @@ export default function Signup() {
     }
   };
 
+  // reset 
+  const goBack = () => {
+    console.log("goback")
+    setPage(1);
+    setAccountType(null);
+    setSubmitting(null);
+  }
+
   return (
     <>
       <div className="auth">
         <h2 className="auth-title">Sign up</h2>
         {submitting ? (
-          <Submitting submitState={submitting} setPage={setPage} />
+          <Submitting submitState={submitting} goBack={goBack} location="signup" />
         ) : (
           <form onSubmit={handleSubmit(onSubmit)}>
             {page === 1 && (

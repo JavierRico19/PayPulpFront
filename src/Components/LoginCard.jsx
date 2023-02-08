@@ -1,4 +1,6 @@
-const LoginCard = ({ register, handleSubmit, onSubmit, errors}) => {
+import AuthError from "./AuthError";
+
+const LoginCard = ({ register, handleSubmit, onSubmit, loginError}) => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <section className="auth-card">
@@ -18,6 +20,7 @@ const LoginCard = ({ register, handleSubmit, onSubmit, errors}) => {
             Login
           </button>
         </div>
+          {loginError && <AuthError />}
       </section>
     </form>
   );

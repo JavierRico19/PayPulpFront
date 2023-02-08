@@ -1,29 +1,33 @@
-const Submitting = ({ submitState, setPage }) => {
-  
-
-  return (
-    submitState === "waiting" ?
+const Submitting = ({ submitState, location, goBack }) => {
+  return submitState === "waiting" ? (
     <>
-      <div>Your account details are beign submitted</div>
+      <div>Your request is being processed</div>
       <div>Spinner</div>
     </>
-    :
-    submitState === "error" ?
+  ) : submitState === "error" ? (
     <>
-      <div>There has been a problem with your submission</div>
+      <div>We're sorry</div>
+      {location === "signup" && (
+        <div>There has been a problem with your submission</div>
+      )}
+      {location === "gateway" && (
+        <div>There has been a problem with your payment</div>
+      )}
       <div>:&#40;</div>
-      <button onClick={setPage(1)}>Go back</button>
+      <button onClick={goBack}>Go back</button>
     </>
-    :
-    submitState === "success" ?
+  ) : submitState === "success" ? (
     <>
       <div>Congratulations!</div>
-      <div>Your account has been successfully created</div>
+      {location === "signup" && (
+        <div>Your account has been successfully created</div>
+      )}
+      {location === "gateway" && (
+          <div>Your payment has gone through.</div>
+      )}
       <div>:&#41;</div>
-      {/* <button onClick={setPage(1)}>Go back</button> */}
     </>
-    : null
-  );
+  ) : null;
 };
 
 export default Submitting;

@@ -49,7 +49,7 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "gateway/:productUuid/:redirUrl",
+    path: "gateway/:productUuid",
     loader: ({params}) => params = { ...params, isOnGateway: true},
     element: <PaymentView />,
   },
