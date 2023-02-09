@@ -49,7 +49,7 @@ const SignUp4 = ({ register, setPage, errors, isValid, handleSubmit }) => {
             onClick={() => handleSubmit()}
             disabled={isValid ? false : true}
           >
-            Create account
+            Send
           </button>
         </div>
       </section>

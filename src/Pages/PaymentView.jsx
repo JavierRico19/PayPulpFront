@@ -14,13 +14,12 @@ const PaymentView = () => {
   const [submitState, setSubmitState] = useState(null);
   const { productUuid } = useLoaderData();
   const [searchParams] = useSearchParams();
-  // console.log(searchParams);
 
   useEffect(() => {
     if (isAuth) {
       const getProduct = async () => {
         // const res = await PaymentGateway.getProduct(productUuid);
-        setProduct({ uuid: "abc123", name: "Rainbow Wand", price: 200 });
+        setProduct({ uuid: "abc123", name: "Rainbow Wand", price: 200 }); // FOR TEST ONLY
       };
       getProduct();
     }
@@ -32,7 +31,8 @@ const PaymentView = () => {
     }
   }, [isAuth, submitState]);
 
-  const goBack = () => {
+  const goBack = () => { 
+    // -- searchParams.get parse query to string
     const redirUrl = searchParams.get("redirecturl");
     window.location.replace(`http://${redirUrl}`);
   };
