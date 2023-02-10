@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Business from "../Pages/Business";
+import Dashboard from "../Pages/Dashboard";
 import Developer from "../Pages/Developer";
 import Help from "../Pages/Help";
 import Home from "../Pages/Home";
@@ -8,7 +9,6 @@ import PaymentView from "../Pages/PaymentView";
 import Personal from "../Pages/Personal";
 import Signup from "../Pages/Signup";
 import "../Styles/App.css";
-import ConfirmPurchase from "./ConfirmPurchase";
 import MainApp from "./MainApp";
 
 const router = createBrowserRouter([
@@ -45,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "signup",
         element: <Signup />,
+      },
+      {
+        path: "dashboard",
+        element: <Dashboard />,
       },
     ],
   },
