@@ -8,7 +8,7 @@ const SignUp2 = ({
 }) => {
   return (
     <>
-      <section className="auth-card">
+      {/* <section className="auth-card"> */}
         <div className="input-wrapper">
           <label htmlFor="firstName">First name:</label>
           <input
@@ -27,7 +27,7 @@ const SignUp2 = ({
               // pattern: { value: /\w+{2,50}/g, message: "This field can only contain letters and/or numbers" },
             })}
           />
-          <p>{errors.firstName?.message}</p>
+          <p className="input-error-text">{errors.firstName?.message}</p>
         </div>
         <div className="input-wrapper">
           <label htmlFor="lastName">Last name:</label>
@@ -47,7 +47,7 @@ const SignUp2 = ({
               // pattern: { value: /\w+/g, message: "This field can only contain letters and/or numbers" },
             })}
           />
-          <p>{errors.lastName?.message}</p>
+          <p className="input-error-text">{errors.lastName?.message}</p>
         </div>
         <div className="input-wrapper">
           <label htmlFor="email">Email:</label>
@@ -66,7 +66,7 @@ const SignUp2 = ({
               },
             })}
           />
-          <p>{errors.email?.message}</p>
+          <p className="input-error-text">{errors.email?.message}</p>
         </div>
         <div className="input-wrapper">
           <label htmlFor="password">Password:</label>
@@ -90,9 +90,9 @@ const SignUp2 = ({
               },
             })}
           />
-          <p>{errors.password?.message}</p>
+          <p className="input-error-text">{errors.password?.message}</p>
         </div>
-        <div>
+        <div className="input-wrapper">
           <label htmlFor="confirmPassword">Confirm password:</label>
           <input
             className={`text-input ${errors.confirmPassword && "input-error"}`}
@@ -106,7 +106,7 @@ const SignUp2 = ({
               validate: (value) => value === watch("password"),
             })}
           />
-          <p>{errors.confirmPassword?.message}</p>
+          <p className="input-error-text">{errors.confirmPassword?.message}</p>
         </div>
         <div className="auth-btns">
           <button
@@ -123,7 +123,7 @@ const SignUp2 = ({
             Next
           </button>
         </div>
-      </section>
+      {/* </section> */}
     </>
   );
 };

@@ -92,7 +92,7 @@ export default function Signup() {
             location="signup"
           />
         ) : (
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form className="auth-card" onSubmit={handleSubmit(onSubmit)}>
             {page === 1 && (
               <SignUp1 setPage={setPage} setAccountType={setAccountType} />
             )}

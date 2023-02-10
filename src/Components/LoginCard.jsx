@@ -2,8 +2,7 @@ import AuthError from "./AuthError";
 
 const LoginCard = ({ register, handleSubmit, onSubmit, loginError }) => {
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <section className="auth-card">
+    <form className="auth-card" onSubmit={handleSubmit(onSubmit)}>
         <div className="input-wrapper">
           <label htmlFor="email">Email</label>
           <input className="text-input" type="text" {...register("email")} />
@@ -26,7 +25,6 @@ const LoginCard = ({ register, handleSubmit, onSubmit, loginError }) => {
           </button>
         </div>
         {loginError && <AuthError />}
-      </section>
     </form>
   );
 };

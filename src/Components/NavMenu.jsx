@@ -4,12 +4,12 @@ function NavMenu({ showMenu, setShowMenu, width }) {
   return (
       <div
         className={
-          width < 800
+          width < 1000
             ? `nav-menu-mobile ${showMenu ? "nav-menu-show" : "nav-menu-hide"}`
             : "nav-menu-desktop"
         }
       >
-        <div className={width > 800 ? "nav-links" : null}>
+        <div className={width > 1000 ? "nav-links" : null}>
           <NavLink to="personal">
             <span>Personal</span>
           </NavLink>
