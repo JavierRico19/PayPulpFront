@@ -18,7 +18,7 @@ const SignUp4 = ({ register, setPage, errors, isValid, handleSubmit }) => {
             },
           })}
         />
-        <p>{errors.securityQuestion?.message}</p>
+        <p className="input-error-text">{errors.securityQuestion?.message}</p>
         <label htmlFor="securityAnswer">Security answer:</label>
         <input
           className={`text-input ${errors.securityAnswer && "input-error"}`}
@@ -35,7 +35,7 @@ const SignUp4 = ({ register, setPage, errors, isValid, handleSubmit }) => {
             },
           })}
         />
-        <p>{errors.securityAnswer?.message}</p>
+        <p className="input-error-text">{errors.securityAnswer?.message}</p>
 
         <div className="auth-btns">
           <button
@@ -49,7 +49,7 @@ const SignUp4 = ({ register, setPage, errors, isValid, handleSubmit }) => {
             onClick={() => handleSubmit()}
             disabled={isValid ? false : true}
           >
-            Create account
+            Send
           </button>
         </div>
       </section>

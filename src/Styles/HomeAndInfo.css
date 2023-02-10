@@ -16,9 +16,10 @@
 }
 
 .home-text {
+  padding: 2rem 2rem 0 3rem;
   font-size: 1rem;
   font-weight: 200;
-  padding: 2rem 2rem 0 3rem;
+  color: var(--text-light);
 }
 
 .home-image {

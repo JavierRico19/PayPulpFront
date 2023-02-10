@@ -14,6 +14,20 @@ const SignUp3 = ({ register, setPage, errors, isValid }) => {
           })}
         />
         <p>{errors.birthDate?.message}</p> */}
+        <label htmlFor="phone">Phone number:</label>
+        <input
+          className={`text-input ${errors.phone && "input-error"}`}
+          type="text"
+          {...register("phone", {
+            required: "Field required",
+            maxLength: {
+              value: 20,
+              message: "This field should be less than 20 characters long",
+            },
+            pattern: { value: /^\d+$/, message: "Not a valid phone format" },
+          })}
+        />
+        <p className="input-error-text">{errors.phone?.message}</p>
         <label htmlFor="address">Address:</label>
         <input
           className={`text-input ${errors.address && "input-error"}`}
@@ -30,7 +44,7 @@ const SignUp3 = ({ register, setPage, errors, isValid }) => {
             },
           })}
         />
-        <p>{errors.address?.message}</p>
+        <p className="input-error-text">{errors.address?.message}</p>
         <label htmlFor="city">City:</label>
         <input
           className={`text-input ${errors.city && "input-error"}`}
@@ -47,7 +61,7 @@ const SignUp3 = ({ register, setPage, errors, isValid }) => {
             },
           })}
         />
-        <p>{errors.city?.message}</p>
+        <p className="input-error-text">{errors.city?.message}</p>
         <label htmlFor="country">Country:</label>
         <input
           className={`text-input ${errors.country && "input-error"}`}
@@ -65,7 +79,7 @@ const SignUp3 = ({ register, setPage, errors, isValid }) => {
             // pattern
           })}
         />
-        <p>{errors.country?.message}</p>
+        <p className="input-error-text">{errors.country?.message}</p>
 
         <div className="auth-btns">
           <button

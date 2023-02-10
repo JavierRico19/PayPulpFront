@@ -24,7 +24,7 @@ export default function NavBar() {
         <NavLink to="">
           <img className="logo" src={Logo} alt="PayPulp logo" />
         </NavLink>
-        {width < 800 && (
+        {width < 1000 && (
           <MenuOpenIcon
             className="menu-icon"
             fontSize="large"

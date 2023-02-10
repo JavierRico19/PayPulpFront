@@ -1,17 +1,21 @@
 import AuthError from "./AuthError";
 
-const LoginCard = ({ register, handleSubmit, onSubmit, loginError}) => {
+const LoginCard = ({ register, handleSubmit, onSubmit, loginError }) => {
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <section className="auth-card">
-        <label htmlFor="email">Email</label>
-        <input className="text-input" type="text" {...register("email")} />
-        <label htmlFor="password">Password</label>
-        <input
-          className="text-input"
-          type="password"
-          {...register("password")}
-        />
+    <form className="auth-card" onSubmit={handleSubmit(onSubmit)}>
+        <div className="input-wrapper">
+          <label htmlFor="email">Email</label>
+          <input className="text-input" type="text" {...register("email")} />
+          <p className="spacer"></p>
+        </div>
+        <div className="input-wrapper">
+          <label htmlFor="password">Password</label>
+          <input
+            className="text-input"
+            type="password"
+            {...register("password")}
+          />
+        </div>
         <div className="auth-btns">
           <button
             className="round-btns blue-btn btn-on-main"
@@ -20,8 +24,7 @@ const LoginCard = ({ register, handleSubmit, onSubmit, loginError}) => {
             Login
           </button>
         </div>
-          {loginError && <AuthError />}
-      </section>
+        {loginError && <AuthError />}
     </form>
   );
 };

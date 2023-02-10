@@ -53,13 +53,16 @@ const Login = ({ setIsAuth, setUser }) => {
 
   return (
     <div className="auth">
-      <img className="login-logo" src={Logo} alt="PayPulp logo" />
+      <div className="auth-paper">
+      {/* <img className="login-logo" src={Logo} alt="PayPulp logo" /> */}
+      <h2 className="auth-title">Log In</h2>
       <LoginCard
         register={register}
         handleSubmit={handleSubmit}
         onSubmit={onSubmit}
         loginError={loginError}
       />
+      </div>
     </div>
   );
 };
