@@ -1,3 +1,5 @@
+import DashboardCard from "../Components/DashboardCard";
+import TransactionsTable from "../Components/TransactionsTable";
 import "../Styles/Dashboard.css";
 
 const Dashboard = () => {
@@ -6,14 +8,13 @@ const Dashboard = () => {
       <div className="dash-title-wrapper">
         <h2 className="dash-title">Welcome Back, User</h2>
       </div>
-      <article className="dash-paper dash-transactions">
-        <div className="dash-card">
-          <div className="dash-subtitle">Recent transactions</div>
-        </div>
-      </article>
-      <article className="dash-paper dash-pay-method">
-        <div>Main payment method</div>
-      </article>
+      <DashboardCard className="dash-transactions" title="Recent Transactions" >
+        <TransactionsTable />
+      </DashboardCard>
+      <DashboardCard className="dash-pay-method" title="Main Payment Method" >
+
+      </DashboardCard>
+      
     </section>
   );
 };

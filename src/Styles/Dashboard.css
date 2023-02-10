@@ -12,29 +12,11 @@
   gap: 2rem;
 }
 
-.dash-paper {
-  padding: 2rem;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px hsl(0, 0%, 70%);
-  background-color: #fff;
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* align-items: center; */
-}
-
 .dash-title-wrapper {
   grid-area: 1 / 1 / span 2 / span 12;
-  /* height: 30px; */
   display: flex;
   align-items: center;
   font-size: 2rem;
-}
-
-.dash-card {
-  width: 100%;
-  height: 100%;
-  border: 1px solid hsl(0, 0%, 70%);
-  padding: 1rem;
 }
 
 .dash-transactions {
@@ -43,8 +25,4 @@
 
 .dash-pay-method {
   grid-area: 3 / 9 / span 8 / span 4;
-}
-
-.dash-subtitle {
-  font-size: 1.5rem;
 }
