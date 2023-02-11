@@ -63,11 +63,13 @@ const TransactionsTable = () => {
 
   return (
     <div className="transactions-table">
-        <div className="transactions-column">Date</div>
-        <div className="transactions-column">Product</div>
-        <div className="transactions-column">Seller</div>
-        <div className="transactions-column">Amount</div>
-        <div className="transactions-column">Payment Method</div>
+      <div className="transactions-column">
+        <div >Date</div>
+        <div >Product</div>
+        <div >Seller</div>
+        <div >Amount</div>
+        <div >Payment Method</div>
+        </div>
       {mock.map((product) => (
         <TransactionEntry
           date={product.date}

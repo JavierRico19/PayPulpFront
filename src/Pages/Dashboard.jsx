@@ -1,3 +1,4 @@
+import CardImage from "../Components/CardImage";
 import DashboardCard from "../Components/DashboardCard";
 import TransactionsTable from "../Components/TransactionsTable";
 import "../Styles/Dashboard.css";
@@ -12,7 +13,7 @@ const Dashboard = () => {
         <TransactionsTable />
       </DashboardCard>
       <DashboardCard className="dash-pay-method" title="Main Payment Method" >
-        
+          <CardImage />
       </DashboardCard>
       
     </section>
