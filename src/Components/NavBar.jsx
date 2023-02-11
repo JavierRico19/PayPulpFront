@@ -14,7 +14,7 @@ export default function NavBar() {
   // get viewport width
   const { width } = useWindowSize();
 
-  const { user } = useContext(userContext);
+  const { userInfo } = useContext(userContext);
 
   /**
    * - ClickAwayListener close mobile menu on click outside navbar

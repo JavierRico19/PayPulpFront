@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import UserContext from "../Context/UserContext";
 import Business from "../Pages/Business";
 import Dashboard from "../Pages/Dashboard";
 import Developer from "../Pages/Developer";
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: "login",
-        loader: ({params}) => params = { isOnGateway: false},
+        loader: ({ params }) => (params = { isOnGateway: false }),
         element: <Login />,
       },
       {
@@ -54,14 +55,16 @@ const router = createBrowserRouter([
   },
   {
     path: "gateway/:productUuid",
-    loader: ({params}) => params = { ...params, isOnGateway: true},
+    loader: ({ params }) => (params = { ...params, isOnGateway: true }),
     element: <PaymentView />,
   },
 ]);
 
 function App() {
   return (
-    <RouterProvider router={router} />
+    <UserContext>
+      <RouterProvider router={router} />
+    </UserContext>
   );
 }
 

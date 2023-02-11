@@ -2,7 +2,7 @@ import axios from "axios";
 
 class Auth {
   static login = async (userData) => {
-    try {
+    // try {
       const res = await axios.post(
         `${process.env.REACT_APP_BASE_URL}/login`,
         userData
@@ -10,9 +10,12 @@ class Auth {
       if (res.status === 200) {
         return res;
       }
-    } catch (error) {
-      throw new Error(error);
-    }
+      if (res.status === 401) {
+        return (<div></div>)
+      }
+    // } catch (error) {
+    //   throw new Error(error);
+    // }
   };
 }
 

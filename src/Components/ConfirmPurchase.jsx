@@ -1,13 +1,13 @@
 import { Container, Paper } from "@mui/material";
 import Gateway from "../Services/PaymentGateway";
 
-const ConfirmPurchase = ({ product, user, setSubmitState }) => {
+const ConfirmPurchase = ({ product, userInfo, setSubmitState }) => {
   const confirmPayment =  () => {
     setSubmitState("waiting");
     try {
       const fakeWait = () =>  setSubmitState("success");
       setTimeout(fakeWait, 3000)
-      // const res =  Gateway.confirmPayment(product.uuid, user.paymethod, user.uuid)
+      // const res =  Gateway.confirmPayment(product.uuid, userInfo.paymethod, userInfo.uuid)
       
     } catch (error) {
       setSubmitState("error");
@@ -22,7 +22,7 @@ const ConfirmPurchase = ({ product, user, setSubmitState }) => {
           <div>You are purchasing</div>
           <div>{product?.name}</div>
           <div>with payment method:</div>
-          <div>{user?.paymentMethod}</div>
+          <div>{userInfo?.paymentMethod}</div>
           <div>Amount: {product?.price}</div>
         </div>
         <button
