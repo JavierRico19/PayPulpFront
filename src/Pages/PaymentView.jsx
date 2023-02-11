@@ -1,16 +1,17 @@
-import { useEffect, useState } from "react";
-import { redirect, useLoaderData, useSearchParams } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { useLoaderData, useSearchParams } from "react-router-dom";
 import Logo from "../Assets/Paypulptr.png";
 import ConfirmPurchase from "../Components/ConfirmPurchase";
 import Submitting from "../Components/Submitting";
 import PaymentGateway from "../Services/PaymentGateway";
 import "../Styles/PaymentView.css";
 import Login from "./Login";
+import { userContext } from "../Context/UserContext"
 
 const PaymentView = () => {
   const [isAuth, setIsAuth] = useState(false);
   const [product, setProduct] = useState(null);
-  const [user, setUser] = useState(null);
+  const { userInfo } = useContext(userContext);
   const [submitState, setSubmitState] = useState(null);
   const { productUuid } = useLoaderData();
   const [searchParams] = useSearchParams();
@@ -25,14 +26,12 @@ const PaymentView = () => {
     }
 
     if (submitState === "success") {
-      // const redirUrl = searchParams.get("redirecturl");
-      // const redirection = () => window.location.replace(`http://${redirUrl}`);
       setTimeout(goBack, 4000);
     }
   }, [isAuth, submitState]);
 
   const goBack = () => { 
-    // -- searchParams.get parse query to string
+    // searchParams.get parse query to string
     const redirUrl = searchParams.get("redirecturl");
     window.location.replace(`http://${redirUrl}`);
   };
@@ -43,12 +42,12 @@ const PaymentView = () => {
         <img className="logo" src={Logo} alt="PayPulp logo" />
       </div>
       {!isAuth && !submitState && (
-        <Login setIsAuth={setIsAuth} setUser={setUser} />
+        <Login setIsAuth={setIsAuth} />
       )}
       {isAuth && !submitState && (
         <ConfirmPurchase
-          product={product}
-          user={user}
+          product={product} 
+          userInfo={userInfo}
           setSubmitState={setSubmitState}
         />
       )}
