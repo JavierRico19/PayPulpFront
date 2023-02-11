@@ -31,6 +31,34 @@ const TransactionsTable = () => {
       amount: 123,
       payMethod: 123456789,
     },
+    {
+      date: "12/12/12",
+      name: "Walkies",
+      seller: "Gucci",
+      amount: 123,
+      payMethod: 123456789,
+    },
+    {
+      date: "12/12/12",
+      name: "Walkies",
+      seller: "Gucci",
+      amount: 123,
+      payMethod: 123456789,
+    },
+    {
+      date: "12/12/12",
+      name: "Walkies",
+      seller: "Gucci",
+      amount: 123,
+      payMethod: 123456789,
+    },
+    {
+      date: "12/12/12",
+      name: "Walkies",
+      seller: "Gucci",
+      amount: 123,
+      payMethod: 123456789,
+    },
   ];
 
   return (

@@ -12,7 +12,7 @@ const Dashboard = () => {
         <TransactionsTable />
       </DashboardCard>
       <DashboardCard className="dash-pay-method" title="Main Payment Method" >
-
+        
       </DashboardCard>
       
     </section>

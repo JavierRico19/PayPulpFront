@@ -3,6 +3,7 @@
   width: 100%;
   grid-template-columns: repeat(5, 1fr);
   padding: 1rem;
+  overflow-y: scroll;
 }
 
 .transactions-column {
