@@ -1,12 +1,15 @@
 import { Outlet } from "react-router-dom";
+import UserContext from "../Context/UserContext";
 import NavBar from "./NavBar";
 
 const MainApp = () => {
   return (
-    <main>
-      <NavBar />
-      <Outlet />
-    </main>
+    <UserContext>
+      <main>
+        <NavBar />
+        <Outlet />
+      </main>
+    </UserContext>
   );
 };
 
