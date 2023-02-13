@@ -1,67 +1,59 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { redirect, useLoaderData } from "react-router-dom";
-import Logo from "../Assets/logo-blue.png";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import LoginCard from "../Components/LoginCard";
 import Auth from "../Services/Auth";
 import "../Styles/Auth.css";
+import { userContext } from "../Context/UserContext";
 
-const Login = ({ setIsAuth, setUser }) => {
-  const params = useLoaderData();
-  const [loginError, setLoginError] = useState(null)
-  const {
-    register,
-    handleSubmit,
-  } = useForm({
+const Login = ({ setIsAuth }) => {
+  const params = useLoaderData(); // get query params
+  const [loginError, setLoginError] = useState(null);
+  const { setUserInfo } = useContext(userContext);
+  const navigate = useNavigate();
+  const { register, handleSubmit } = useForm({
     mode: "onTouched",
     defaultValues: {
-      email: "",
-      password: "",
+      email: "masairl@mail.com",
+      password: "1234",
     },
   });
 
   const onSubmit = async (userData) => {
-    
     // auth req
     try {
-      // const res = await Auth.login(userData);
+      const res = await Auth.login(userData);
+      setUserInfo(res);
+      console.log(res.data);
+      if (res.status === 200) {
+        const userInfo = {
+          userEmail: res.data.userEmail,
+          userType: res.data.userType, // should be account type
+          userUuid: res.data.userUuid,
+        };
+        setUserInfo(userInfo);
+        if (params.isOnGateway) {
+          setIsAuth(true);
+        } else {
+          navigate("/dashboard");
+        }
+      }
     } catch (error) {
+      console.err(error);
       setLoginError(true);
-      return;
     }
-
-
-    // update payment view  
-    if (params.isOnGateway) {
-      setIsAuth(true);
-      setUser("abcd"); // has to set user info returned by the API
-    }
-
-
-    // -- if user auth ok & on main app --
-    // if (res === 200 && !params.isOnGateway) {
-    // redirect("/dashboard");
-    // };
-
-    // -- user auth ok & external redirect --
-    // -- -- userUuid depends on final bakend response
-    // if (res === 200 && params.isOnGateway) {
-    //   const { productUuid, redirUrl } = params;
-    //   redirect(`/gateway/payment/${productUuid}/${redirUrl}/${res.userUuid}`)
-    // };
   };
 
   return (
     <div className="auth">
       <div className="auth-paper">
-      {/* <img className="login-logo" src={Logo} alt="PayPulp logo" /> */}
-      <h2 className="auth-title">Log In</h2>
-      <LoginCard
-        register={register}
-        handleSubmit={handleSubmit}
-        onSubmit={onSubmit}
-        loginError={loginError}
-      />
+        <h2 className="auth-title">Log In</h2>
+        <LoginCard
+          register={register}
+          handleSubmit={handleSubmit}
+          onSubmit={onSubmit}
+          loginError={loginError}
+        />
       </div>
     </div>
   );

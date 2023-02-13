@@ -1,19 +1,21 @@
 import CryptoJS from "crypto-js";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import SignUp1 from "../Components/Signup/SignUp1";
 import SignUp2 from "../Components/Signup/SignUp2";
 import SignUp3 from "../Components/Signup/SignUp3";
 import SignUp4 from "../Components/Signup/SignUp4";
 import Submitting from "../Components/Submitting";
+import { userContext } from "../Context/UserContext";
 import "../Styles/Auth.css";
 
 export default function Signup() {
   const [page, setPage] = useState(1);
   const [accountType, setAccountType] = useState(null);
   const [submitting, setSubmitting] = useState(null);
-
+  const { setUserInfo } = useContext(userContext);
+  const navigate = useNavigate();
   /**
    * react-hook-form
    * -register handles input actions (onChange, validation, ...)
@@ -30,15 +32,17 @@ export default function Signup() {
   } = useForm({
     mode: "onTouched",
     defaultValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      address: "",
-      city: "",
-      country: "",
-      securityQuestion: "",
-      securityAnswer: "",
+      firstName: "Robert",
+      lastName: "Robertz",
+      email: "robert@robertz.com",
+      password: "1234Qwer",
+      confirmPassword: "1234Qwer",
+      phone: "1234567890",
+      address: "Robert Street 4",
+      city: "Madrid",
+      country: "Madrid",
+      securityQuestion: "Who is Robert?",
+      securityAnswer: "Who wants to",
     },
   });
 
@@ -53,7 +57,6 @@ export default function Signup() {
         accountType: accountType,
       };
     }
-
     setSubmitting("waiting");
     try {
       // const res = await axios.post("http://localhost:3300/api/user");
@@ -61,10 +64,15 @@ export default function Signup() {
       //   setSubmitting("success");
       // }
 
+      const redirect = () => navigate("/dashboard")
+      const success = () => {
+        setSubmitting("success")
+        // setUserInfo(USER INFO)
+        setTimeout(redirect, 3000);
+      };
       // just faking api call
-      const success = () => setSubmitting("success");
       setTimeout(success, 3000);
-
+      
       // wait for redirection
       // const redir = () => redirect("/dashboard");
       // setTimeout(redir, 3000);
@@ -103,7 +111,6 @@ export default function Signup() {
                 watch={watch}
                 errors={errors}
                 isValid={isValid}
-                handleSubmit={handleSubmit} // FOR TEST ONLY
               />
             )}
             {page === 3 && (

@@ -1,17 +1,20 @@
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import { ClickAwayListener } from "@mui/material";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "../Assets/Paypulptr.png";
 import useWindowSize from "../Hooks/useWindowSize.js";
 import "../Styles/NavBar.css";
 import NavMenu from "./NavMenu";
+import { userContext } from "../Context/UserContext"
 
 export default function NavBar() {
   // toggle mobile menu
   const [showMenu, setShowMenu] = useState(false);
   // get viewport width
   const { width } = useWindowSize();
+
+  const { userInfo } = useContext(userContext);
 
   /**
    * - ClickAwayListener close mobile menu on click outside navbar

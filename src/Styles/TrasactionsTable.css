@@ -30,3 +30,9 @@
   color: var(--text-dark);
   transform: scale(102%);
 }
+
+@media (max-width: 1150px) {
+  .transactions-table {
+    padding: 0;
+  }
+}
