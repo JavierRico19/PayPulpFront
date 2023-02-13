@@ -6,11 +6,11 @@ import Developer from "../Pages/Developer";
 import Help from "../Pages/Help";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
-import PaymentView from "../Pages/PaymentView";
 import Personal from "../Pages/Personal";
 import Signup from "../Pages/Signup";
 import "../Styles/App.css";
 import MainApp from "./MainApp";
+import PaymentView from "../Pages/PaymentView.jsx"
 
 const router = createBrowserRouter([
   {

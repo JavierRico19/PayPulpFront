@@ -5,7 +5,6 @@
   margin: 0;
   padding: 0;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  color: var(--text-dark)
 }
 
 :root {
@@ -39,6 +38,7 @@ span, div, p {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+  color: var(--text-dark)
 }
 
 main {

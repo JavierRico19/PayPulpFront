@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { redirect, useLoaderData, useNavigate } from "react-router-dom";
-import Logo from "../Assets/logo-blue.png";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import LoginCard from "../Components/LoginCard";
 import Auth from "../Services/Auth";
 import "../Styles/Auth.css";
@@ -48,7 +47,6 @@ const Login = ({ setIsAuth }) => {
   return (
     <div className="auth">
       <div className="auth-paper">
-        {/* <img className="login-logo" src={Logo} alt="PayPulp logo" /> */}
         <h2 className="auth-title">Log In</h2>
         <LoginCard
           register={register}
