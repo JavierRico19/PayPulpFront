@@ -6,7 +6,7 @@ const Submitting = ({ submitState, location, goBack }) => {
       {submitState === "waiting" ? (
         <>
           <div>Your request is being processed</div>
-          <div>Spinner</div>
+          <div class="lds-ripple"><div></div><div></div></div>
         </>
       ) : submitState === "error" ? (
         <>
@@ -24,7 +24,10 @@ const Submitting = ({ submitState, location, goBack }) => {
         <>
           <div>Congratulations!</div>
           {location === "signup" && (
+            <>
             <div>Your account has been successfully created</div>
+            <div>Please stand by while you're being redirected</div>
+            </>
           )}
           {location === "gateway" && <div>Your payment has gone through.</div>}
           <div>:&#41;</div>

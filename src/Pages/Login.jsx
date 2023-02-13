@@ -10,7 +10,7 @@ const Login = ({ setIsAuth }) => {
   const params = useLoaderData(); // get query params
   const [loginError, setLoginError] = useState(null);
   const { setUserInfo } = useContext(userContext);
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const { register, handleSubmit } = useForm({
     mode: "onTouched",
     defaultValues: {

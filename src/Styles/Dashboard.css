@@ -26,3 +26,27 @@
 .dash-pay-method {
   grid-area: 3 / 9 / span 8 / span 4;
 }
+
+@media (max-width: 1150px) {
+  .dashboard {
+    display: block;
+    padding: 1rem;
+  }
+
+  .dash-paper {
+    width: 100%;
+  }
+
+  /* .dash-title-wrapper {
+    grid-area: 1 / 1 / span 1 / span 12;
+
+  }
+  .dash-transactions {
+    grid-column: 1 / span 12;
+  }
+
+  .dash-pay-method {
+    display: none;
+    grid-area: 3 / 9 / span 8 / span 4;
+  } */
+}
