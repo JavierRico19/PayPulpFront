@@ -1,5 +1,5 @@
 import CryptoJS from "crypto-js";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import SignUp1 from "../Components/Signup/SignUp1";
@@ -7,12 +7,14 @@ import SignUp2 from "../Components/Signup/SignUp2";
 import SignUp3 from "../Components/Signup/SignUp3";
 import SignUp4 from "../Components/Signup/SignUp4";
 import Submitting from "../Components/Submitting";
+import { userContext } from "../Context/UserContext";
 import "../Styles/Auth.css";
 
 export default function Signup() {
   const [page, setPage] = useState(1);
   const [accountType, setAccountType] = useState(null);
   const [submitting, setSubmitting] = useState(null);
+  const { setUserInfo } = useContext(userContext);
   const navigate = useNavigate();
   /**
    * react-hook-form
@@ -62,12 +64,13 @@ export default function Signup() {
       //   setSubmitting("success");
       // }
 
-      // just faking api call
       const redirect = () => navigate("/dashboard")
       const success = () => {
         setSubmitting("success")
+        // setUserInfo(USER INFO)
         setTimeout(redirect, 3000);
       };
+      // just faking api call
       setTimeout(success, 3000);
       
       // wait for redirection
@@ -108,7 +111,6 @@ export default function Signup() {
                 watch={watch}
                 errors={errors}
                 isValid={isValid}
-                handleSubmit={handleSubmit} // FOR TEST ONLY
               />
             )}
             {page === 3 && (
