@@ -6,7 +6,7 @@ const Submitting = ({ submitState, location, goBack }) => {
       {submitState === "waiting" ? (
         <>
           <div>Your request is being processed</div>
-          <div class="lds-ripple"><div></div><div></div></div>
+          <div className="lds-ripple"><div></div><div></div></div>
         </>
       ) : submitState === "error" ? (
         <>

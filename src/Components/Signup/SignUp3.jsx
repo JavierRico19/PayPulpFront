@@ -1,19 +1,34 @@
 const SignUp3 = ({ register, setPage, errors, isValid }) => {
+  // get current date and format correctly for display as default value
+  const getCurrentDate = () => {
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const day = date.getDate();
+    const formatDate = `${year}-${month > 9 ? month : '0' + month}-${day > 9 ? day : '0' + day}`;
+    return formatDate;
+  };
   return (
     <>
       <section className="auth-card">
-        {/* <label htmlFor="birthDate">Date of birth:</label>
+        <label htmlFor="birthDate">Date of birth:</label>
         <input
-        className={`text-input ${errors.birthDate && "input-error"}`}
-          type="text"
+          className={`text-input ${errors.birthDate && "input-error"}`}
+          type="date"
+          defaultValue={getCurrentDate()}
           {...register("birthDate", {
             required: "Field required",
-            minLength: { value: 3, message: "This field should be at least 3 characters long" },
-            maxLength: { value: 50, message: "This field should be less than 50 characters long" },
-            // pattern
+            minLength: {
+              value: 3,
+              message: "This field should be at least 3 characters long",
+            },
+            maxLength: {
+              value: 50,
+              message: "This field should be less than 50 characters long",
+            },
           })}
         />
-        <p>{errors.birthDate?.message}</p> */}
+        <p>{errors.birthDate?.message}</p>
         <label htmlFor="phone">Phone number:</label>
         <input
           className={`text-input ${errors.phone && "input-error"}`}

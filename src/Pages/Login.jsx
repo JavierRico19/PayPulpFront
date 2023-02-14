@@ -28,7 +28,7 @@ const Login = ({ setIsAuth }) => {
       if (res.status === 200) {
         const userInfo = {
           userEmail: res.data.userEmail,
-          userType: res.data.userType, // should be account type
+          accountType: res.data.accountType, // should be account type
           userUuid: res.data.userUuid,
         };
         setUserInfo(userInfo);
@@ -39,7 +39,7 @@ const Login = ({ setIsAuth }) => {
         }
       }
     } catch (error) {
-      console.err(error);
+      console.log(error);
       setLoginError(true);
     }
   };
