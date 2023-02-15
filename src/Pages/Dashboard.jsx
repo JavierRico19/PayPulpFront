@@ -7,7 +7,7 @@ import "../Styles/Dashboard.css";
 
 const Dashboard = () => {
   const { userInfo } = useContext(userContext);
-  // console.log(userInfo)
+  
   return (
     <section className="dashboard">
       <div className="dash-title-wrapper">

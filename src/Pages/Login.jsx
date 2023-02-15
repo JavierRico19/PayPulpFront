@@ -21,7 +21,8 @@ const Login = ({ setIsAuth }) => {
 
   useEffect(() => {
     // if user is logged in and tries to access login page
-    if (localStorage.getItem("token")) navigate(-1);
+    if (localStorage.getItem("token") && !params.isOnGateway) navigate(-1);
+    // if (localStorage.getItem("token") && !params.isOnGateway) navigate(-1);
   }, [])
   
 
