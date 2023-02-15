@@ -52,12 +52,12 @@ export default function Signup() {
   };
 
   // set submitting dialog and make post request
-  const onSubmit = async (data) => {
-    if (data) {
-      delete data.confirmPassword;
-      let encrypted = CryptoJS.MD5(data.password, "secret").toString();
-      data = {
-        ...data,
+  const onSubmit = async (userData) => {
+    if (userData) {
+      delete userData.confirmPassword;
+      let encrypted = CryptoJS.MD5(userData.password, "secret").toString();
+      userData = {
+        ...userData,
         password: encrypted,
         accountType: accountType,
         timeZone: getTimezone(),
@@ -67,17 +67,17 @@ export default function Signup() {
     try {
       const res = await axios.post(
         "http://localhost:3300/api/user/signup",
-        data
+        userData
       );
       if (res.status === 200) {
         const redirect = () => navigate("/dashboard");
         const success = () => {
           setSubmitting("success");
           const newUserInfo = {
-            ...res.data.resUsers,
-            ...res.data.resCustomers,
+            ...res.data.userInfo,
+            ...res.data.customerInfo,
           }
-          console.log(newUserInfo)
+          localStorage.setItem("token", res.data.token)
           setUserInfo(newUserInfo);
           setTimeout(redirect, 3000);
         };
