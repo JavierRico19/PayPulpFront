@@ -7,7 +7,7 @@ import "../Styles/Dashboard.css";
 
 const Dashboard = () => {
   const { userInfo } = useContext(userContext);
-
+  
   return (
     <section className="dashboard">
       <div className="dash-title-wrapper">
@@ -17,7 +17,7 @@ const Dashboard = () => {
         <TransactionsTable />
       </DashboardCard>
       <DashboardCard className="dash-pay-method" title="Main Payment Method" >
-          <CardImage />
+        <CardImage />
       </DashboardCard>
     </section>
   );

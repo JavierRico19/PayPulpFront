@@ -1,3 +1,4 @@
+import axios from "axios";
 import CryptoJS from "crypto-js";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -42,40 +43,48 @@ export default function Signup() {
       city: "Madrid",
       country: "Madrid",
       securityQuestion: "Who is Robert?",
-      securityAnswer: "Who wants to",
+      securityQuestionAnswer: "Who wants to",
     },
   });
 
+  const getTimezone = () => {
+    return (new Date().getTimezoneOffset() / 60) * -1;
+  };
+
   // set submitting dialog and make post request
-  const onSubmit = async (data) => {
-    if (data) {
-      delete data.confirmPassword;
-      let encrypted = CryptoJS.MD5(data.password, "secret").toString();
-      data = {
-        ...data,
+  const onSubmit = async (userData) => {
+    if (userData) {
+      delete userData.confirmPassword;
+      let encrypted = CryptoJS.MD5(userData.password, "secret").toString();
+      userData = {
+        ...userData,
         password: encrypted,
         accountType: accountType,
+        timeZone: getTimezone(),
       };
     }
     setSubmitting("waiting");
     try {
-      // const res = await axios.post("http://localhost:3300/api/user");
-      // if (res.status === 200) {
-      //   setSubmitting("success");
-      // }
-
-      const redirect = () => navigate("/dashboard")
-      const success = () => {
-        setSubmitting("success")
-        // setUserInfo(USER INFO)
-        setTimeout(redirect, 3000);
-      };
+      const res = await axios.post(
+        "http://localhost:3300/api/user/signup",
+        userData
+      );
+      if (res.status === 200) {
+        const redirect = () => navigate("/dashboard");
+        const success = () => {
+          setSubmitting("success");
+          const newUserInfo = {
+            ...res.data.userInfo,
+            ...res.data.customerInfo,
+          }
+          localStorage.setItem("token", res.data.token)
+          setUserInfo(newUserInfo);
+          setTimeout(redirect, 3000);
+        };
+        success();
+      }
       // just faking api call
-      setTimeout(success, 3000);
-      
-      // wait for redirection
-      // const redir = () => redirect("/dashboard");
-      // setTimeout(redir, 3000);
+      // setTimeout(success, 3000);
     } catch (error) {
       setSubmitting("error");
       console.log(error);

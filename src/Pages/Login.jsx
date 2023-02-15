@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import LoginCard from "../Components/LoginCard";
@@ -19,19 +19,21 @@ const Login = ({ setIsAuth }) => {
     },
   });
 
+  useEffect(() => {
+    // if user is logged in and tries to access login page
+    if (localStorage.getItem("token") && !params.isOnGateway) navigate(-1);
+    // if (localStorage.getItem("token") && !params.isOnGateway) navigate(-1);
+  }, [])
+  
+
   const onSubmit = async (userData) => {
     // auth req
     try {
       const res = await Auth.login(userData);
-      setUserInfo(res);
-      console.log(res.data);
       if (res.status === 200) {
-        const userInfo = {
-          userEmail: res.data.userEmail,
-          userType: res.data.userType, // should be account type
-          userUuid: res.data.userUuid,
-        };
-        setUserInfo(userInfo);
+        console.log("auth")
+        setUserInfo(res.data.userInfo);
+        localStorage.setItem("token", res.data.token);
         if (params.isOnGateway) {
           setIsAuth(true);
         } else {
@@ -39,7 +41,7 @@ const Login = ({ setIsAuth }) => {
         }
       }
     } catch (error) {
-      console.err(error);
+      console.log(error);
       setLoginError(true);
     }
   };

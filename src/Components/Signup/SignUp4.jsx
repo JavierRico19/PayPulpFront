@@ -19,11 +19,11 @@ const SignUp4 = ({ register, setPage, errors, isValid, handleSubmit }) => {
           })}
         />
         <p className="input-error-text">{errors.securityQuestion?.message}</p>
-        <label htmlFor="securityAnswer">Security answer:</label>
+        <label htmlFor="securityQuestionAnswer">Security answer:</label>
         <input
-          className={`text-input ${errors.securityAnswer && "input-error"}`}
+          className={`text-input ${errors.securityQuestionAnswer && "input-error"}`}
           type="text"
-          {...register("securityAnswer", {
+          {...register("securityQuestionAnswer", {
             required: "Field required",
             minLength: {
               value: 5,
@@ -35,7 +35,7 @@ const SignUp4 = ({ register, setPage, errors, isValid, handleSubmit }) => {
             },
           })}
         />
-        <p className="input-error-text">{errors.securityAnswer?.message}</p>
+        <p className="input-error-text">{errors.securityQuestionAnswer?.message}</p>
 
         <div className="auth-btns">
           <button
@@ -46,7 +46,8 @@ const SignUp4 = ({ register, setPage, errors, isValid, handleSubmit }) => {
           </button>
           <button
             className="round-btns white-btn btn-on-main"
-            onClick={() => handleSubmit()}
+            // onClick={() => handleSubmit()}
+            type="submit"
             disabled={isValid ? false : true}
           >
             Send

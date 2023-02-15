@@ -58,7 +58,10 @@ nav {
   color: var(--font-secondary);
   font-size: 1.5rem;
   font-weight: 300;
-  padding: 0.5rem 0;
+  padding: 0 0 .2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .nav-menu-mobile .round-btns {
@@ -72,4 +75,8 @@ nav {
   display: flex;
   gap: 2rem;
   padding: 0 2rem;
+}
+
+.nav-avatar {
+  margin-right: 1rem;
 }
