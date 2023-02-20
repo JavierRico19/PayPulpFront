@@ -51,12 +51,12 @@ export default function NavBar() {
           ) : (
             <Avatar
               className="nav-avatar"
-              sx={userInfo && { bgcolor: stringToColor(userInfo.email) }}
+              // sx={userInfo && { bgcolor: stringToColor(userInfo.email) }}
               onClick={() => setShowMenu(true)}
             >
-              {userInfo &&
+              {/* {userInfo &&
                 userInfo.email[0].toUpperCase() +
-                  userInfo.userUuid[0].toUpperCase()}
+                  userInfo.userUuid[0].toUpperCase()} */}
             </Avatar>
           ))}
         <NavMenu showMenu={showMenu} width={width} />

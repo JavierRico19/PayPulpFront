@@ -22,7 +22,6 @@ const Login = ({ setIsAuth }) => {
   useEffect(() => {
     // if user is logged in and tries to access login page
     if (localStorage.getItem("token") && !params.isOnGateway) navigate(-1);
-    // if (localStorage.getItem("token") && !params.isOnGateway) navigate(-1);
   }, [])
   
 
@@ -31,7 +30,6 @@ const Login = ({ setIsAuth }) => {
     try {
       const res = await Auth.login(userData);
       if (res.status === 200) {
-        console.log("auth")
         setUserInfo(res.data.userInfo);
         localStorage.setItem("token", res.data.token);
         if (params.isOnGateway) {
