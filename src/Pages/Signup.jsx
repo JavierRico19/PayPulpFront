@@ -1,5 +1,4 @@
 import axios from "axios";
-import CryptoJS from "crypto-js";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -55,10 +54,8 @@ export default function Signup() {
   const onSubmit = async (userData) => {
     if (userData) {
       delete userData.confirmPassword;
-      let encrypted = CryptoJS.MD5(userData.password, "secret").toString();
       userData = {
         ...userData,
-        password: encrypted,
         accountType: accountType,
         timeZone: getTimezone(),
       };

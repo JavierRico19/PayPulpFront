@@ -1,20 +1,30 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import CardImage from "../Components/CardImage";
 import DashboardCard from "../Components/DashboardCard";
 import TransactionsTable from "../Components/TransactionsTable";
 import { userContext } from "../Context/UserContext";
+import Transactions from "../Services/Transactions";
 import "../Styles/Dashboard.css";
 
 const Dashboard = () => {
-  const { userInfo } = useContext(userContext);
+  const { userInfo, transactions, setTransactions } = useContext(userContext);
+  // console.log("render", userInfo, transactions)
+  useEffect(() => {
+    const getTransactions = async () => {
+      const res = await Transactions.getTransactions(userInfo.userUuid, 10);
+      if (res.status === 200) setTransactions(res.data);
+      // console.log("useEffect", userInfo, transactions)
+    }
+    getTransactions()
+  }, [userInfo])
   
   return (
     <section className="dashboard">
       <div className="dash-title-wrapper">
-        <h2 className="dash-title">Welcome {userInfo?.name}</h2>
+        <h2 className="dash-title">Welcome, {userInfo?.firstName}</h2>
       </div>
       <DashboardCard className="dash-transactions" title="Recent Transactions" >
-        <TransactionsTable />
+        {transactions.length > 0 ? <TransactionsTable transactions={transactions} /> : <h2>You have no transactions yet</h2> }
       </DashboardCard>
       <DashboardCard className="dash-pay-method" title="Main Payment Method" >
         <CardImage />
