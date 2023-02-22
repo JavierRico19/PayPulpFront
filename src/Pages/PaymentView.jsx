@@ -17,14 +17,13 @@ const PaymentView = () => {
   const [searchParams] = useSearchParams();
 
   useEffect(() => {
-    if (isAuth) {
+    if (isAuth && submitState === null) {
       const getProduct = async () => {
-        // const res = await PaymentGateway.getProduct(productUuid);
-        setProduct({ uuid: "abc123", name: "Rainbow Wand", price: 200 }); // FOR TEST ONLY
+        const res = await PaymentGateway.getProduct(productUuid);
+        setProduct(res.data[0]);
       };
       getProduct();
     }
-
     if (submitState === "success") {
       setTimeout(goBack, 4000);
     }
@@ -33,7 +32,7 @@ const PaymentView = () => {
   const goBack = () => { 
     // searchParams.get parse query to string
     const redirUrl = searchParams.get("redirecturl");
-    window.location.replace(`http://${redirUrl}`);
+    window.location.replace(`${redirUrl}`);
   };
 
   return (

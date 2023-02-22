@@ -1,16 +1,18 @@
+import { useContext, useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import UserContext from "../Context/UserContext";
+import { userContext } from "../Context/UserContext";
 import Business from "../Pages/Business";
 import Dashboard from "../Pages/Dashboard";
 import Developer from "../Pages/Developer";
+import FakeStore from "../Pages/FakeStore";
 import Help from "../Pages/Help";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
+import PaymentView from "../Pages/PaymentView.jsx";
 import Personal from "../Pages/Personal";
 import Signup from "../Pages/Signup";
 import "../Styles/App.css";
 import MainApp from "./MainApp";
-import PaymentView from "../Pages/PaymentView.jsx"
 
 const router = createBrowserRouter([
   {
@@ -58,14 +60,21 @@ const router = createBrowserRouter([
     loader: ({ params }) => (params = { ...params, isOnGateway: true }),
     element: <PaymentView />,
   },
+  {
+    path: "fakestore",
+    element: <FakeStore />,
+  },
 ]);
 
 function App() {
-  return (
-    <UserContext>
-      <RouterProvider router={router} />
-    </UserContext>
-  );
+  const { userInfo } = useContext(userContext);
+  // if user is logged in, clear token from localStorage
+  useEffect(() => {
+    if (localStorage.getItem("token") && Object.keys(userInfo).length === 0) {
+      localStorage.clear();
+    }
+  }, []);
+  return <RouterProvider router={router} />;
 }
 
 export default App;
