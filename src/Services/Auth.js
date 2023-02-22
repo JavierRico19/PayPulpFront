@@ -2,20 +2,19 @@ import axios from "axios";
 
 class Auth {
   static login = async (userData) => {
-    // try {
-      const res = await axios.post(
-        `http://localhost:3300/login`,
-        userData
-      );
-      if (res.status === 200) {
-        return res;
-      }
-      if (res.status === 401) {
-        return (<div></div>)
-      }
-    // } catch (error) {
-    //   throw new Error(error);
-    // }
+    const res = await axios.post(
+      `${process.env.REACT_APP_BASE_URL}/login`,
+      userData
+    );
+    return res;
+  };
+
+  static signup = async (userData) => {
+    const res = await axios.post(
+      `${process.env.REACT_APP_BASE_URL}/signup`,
+      userData
+    );
+    return res;
   };
 }
 

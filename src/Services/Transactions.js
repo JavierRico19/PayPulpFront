@@ -8,7 +8,7 @@ class Transactions {
     const config = Transactions.getConfig(token);
 
     const res = await axios.get(
-      `${process.env.REACT_APP_BASE_URL}/transaction/${userUuid}`,
+      `${process.env.REACT_APP_BASE_URL}/private/transaction/${userUuid}`,
       config,
     );
     return res;

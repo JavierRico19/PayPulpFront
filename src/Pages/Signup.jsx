@@ -8,6 +8,7 @@ import SignUp3 from "../Components/Signup/SignUp3";
 import SignUp4 from "../Components/Signup/SignUp4";
 import Submitting from "../Components/Submitting";
 import { userContext } from "../Context/UserContext";
+import Auth from "../Services/Auth";
 import "../Styles/Auth.css";
 
 export default function Signup() {
@@ -62,19 +63,16 @@ export default function Signup() {
     }
     setSubmitting("waiting");
     try {
-      const res = await axios.post(
-        "http://localhost:3300/api/user/signup",
-        userData
-      );
-      if (res.status === 200) {
+      const res = await Auth.signup(userData);
+      if (res.statusText === "OK") {
         const redirect = () => navigate("/dashboard");
         const success = () => {
           setSubmitting("success");
           const newUserInfo = {
             ...res.data.userInfo,
             ...res.data.customerInfo,
-          }
-          localStorage.setItem("token", res.data.token)
+          };
+          localStorage.setItem("token", res.data.token);
           setUserInfo(newUserInfo);
           setTimeout(redirect, 3000);
         };
