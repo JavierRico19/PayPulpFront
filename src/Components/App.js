@@ -11,6 +11,7 @@ import Signup from "../Pages/Signup";
 import "../Styles/App.css";
 import MainApp from "./MainApp";
 import PaymentView from "../Pages/PaymentView.jsx"
+import FakeStore from "../Pages/FakeStore";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
     path: "gateway/:productUuid",
     loader: ({ params }) => (params = { ...params, isOnGateway: true }),
     element: <PaymentView />,
+  },
+  {
+    path: "fakestore",
+    element: <FakeStore />,
   },
 ]);
 

@@ -2,16 +2,28 @@ import { Container, Paper } from "@mui/material";
 import Gateway from "../Services/PaymentGateway";
 
 const ConfirmPurchase = ({ product, userInfo, setSubmitState }) => {
-  const confirmPayment =  () => {
+  const confirmPayment = () => {
     setSubmitState("waiting");
     try {
-      const fakeWait = () =>  setSubmitState("success");
-      setTimeout(fakeWait, 3000)
-      // const res =  Gateway.confirmPayment(product.uuid, userInfo.paymethod, userInfo.uuid)
-      
+      const fakeWait = () => setSubmitState("success");
+      setTimeout(fakeWait, 3000);
+
+      const transactionTime = new Date().toLocaleString("en-US");
+      const transactionInfo = {
+        businessId: product.business_id,
+        personalId: 1, // need it from login response
+        productUuid: product.product_uuid,
+        userUuid: userInfo.userUuid,
+        payMethodUuid: 1234567890, // need it from login response
+        totalAmount: product.price,
+        dateTime: transactionTime,
+        wentThrough: true,
+      };
+      const res =  Gateway.confirmPayment(transactionInfo)
+      console.log(res)
     } catch (error) {
       setSubmitState("error");
-      console.log(error)
+      console.log(error);
     }
   };
 
@@ -20,7 +32,7 @@ const ConfirmPurchase = ({ product, userInfo, setSubmitState }) => {
       <Paper className="pay-info-container" elevation={3}>
         <div>
           <div>You are purchasing</div>
-          <div>{product?.name}</div>
+          <div>{product?.product_name}</div>
           <div>with payment method:</div>
           <div>{userInfo?.paymentMethod}</div>
           <div>Amount: {product?.price}</div>
