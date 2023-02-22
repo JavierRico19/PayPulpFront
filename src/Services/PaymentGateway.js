@@ -15,8 +15,7 @@ class Gateway {
   static confirmPayment = async (transactionInfo) => {
     try {
       const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/transaction`, transactionInfo);
-      console.log(transactionInfo, res)
-      if (res.status === 200) {
+      if (res.status === 201) {
         return res
       }
     } catch (error) {

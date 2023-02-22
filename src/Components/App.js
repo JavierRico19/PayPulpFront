@@ -70,9 +70,7 @@ function App() {
   const { userInfo } = useContext(userContext);
   // if user is logged in, clear token from localStorage
   useEffect(() => {
-    console.log("app useEffect")
     if (localStorage.getItem("token") && Object.keys(userInfo).length === 0) {
-      console.log("clear token!")
       localStorage.clear();
     }
   }, []);

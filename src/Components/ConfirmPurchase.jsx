@@ -2,12 +2,9 @@ import { Container, Paper } from "@mui/material";
 import Gateway from "../Services/PaymentGateway";
 
 const ConfirmPurchase = ({ product, userInfo, setSubmitState }) => {
-  const confirmPayment = () => {
+  const confirmPayment = async () => {
     setSubmitState("waiting");
     try {
-      const fakeWait = () => setSubmitState("success");
-      setTimeout(fakeWait, 3000);
-
       const transactionTime = new Date().toLocaleString("en-US");
       const transactionInfo = {
         businessId: product.business_id,
@@ -19,8 +16,8 @@ const ConfirmPurchase = ({ product, userInfo, setSubmitState }) => {
         dateTime: transactionTime,
         wentThrough: true,
       };
-      const res =  Gateway.confirmPayment(transactionInfo)
-      console.log(res)
+      const res = await Gateway.confirmPayment(transactionInfo)
+      setSubmitState("success");
     } catch (error) {
       setSubmitState("error");
       console.log(error);

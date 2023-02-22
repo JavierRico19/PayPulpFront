@@ -1,9 +1,15 @@
 import axios from "axios";
 
 class Transactions {
+  static getConfig = (token) => {return {headers: {Authorization: token }}}
+
   static getTransactions = async (userUuid, amount) => {
+    const token = localStorage.getItem("token");
+    const config = Transactions.getConfig(token);
+
     const res = await axios.get(
-      `${process.env.REACT_APP_BASE_URL}/transaction/${userUuid}`
+      `${process.env.REACT_APP_BASE_URL}/transaction/${userUuid}`,
+      config,
     );
     return res;
   };
