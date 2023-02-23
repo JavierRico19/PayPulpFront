@@ -18,7 +18,6 @@ const Login = ({ setIsAuth }) => {
       password: "1234",
     },
   });
-
   // if user is logged in and tries to access login page
   useEffect(() => {
     if (localStorage.getItem("token") && !params.isOnGateway) navigate(-1);

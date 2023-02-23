@@ -1,5 +1,9 @@
 import { useContext, useEffect } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  redirect,
+  RouterProvider,
+} from "react-router-dom";
 import MainApp from "./Components/MainApp";
 import { userContext } from "./Context/UserContext";
 import Business from "./Pages/Business";
@@ -14,6 +18,20 @@ import Personal from "./Pages/Personal";
 import Signup from "./Pages/Signup";
 import UserInfo from "./Services/User";
 import "./Styles/App.css";
+
+const checkForToken = () => {
+  if (!localStorage.getItem("token")) {
+    throw redirect("/login");
+  }
+  return null;
+};
+
+const loginLoader = ({ params }) => {
+  if (localStorage.getItem("token")) {
+    throw redirect("/dashboard");
+  }
+  return params = { isOnGateway: false }
+}
 
 const router = createBrowserRouter([
   {
@@ -43,7 +61,7 @@ const router = createBrowserRouter([
       },
       {
         path: "login",
-        loader: ({ params }) => (params = { isOnGateway: false }),
+        loader: loginLoader,
         element: <Login />,
       },
       {
@@ -51,8 +69,14 @@ const router = createBrowserRouter([
         element: <Signup />,
       },
       {
-        path: "dashboard",
-        element: <Dashboard />,
+        path: "",
+        loader: checkForToken, // protected routes
+        children: [
+          {
+            path: "dashboard",
+            element: <Dashboard />,
+          },
+        ],
       },
     ],
   },
@@ -74,8 +98,8 @@ function App() {
     if (localStorage.getItem("token") && Object.keys(userInfo).length === 0) {
       const getUserInfo = async () => {
         const res = await UserInfo.getUserInfo();
-        setUserInfo(res.data)
-      }
+        setUserInfo(res.data);
+      };
       getUserInfo();
     }
   }, []);

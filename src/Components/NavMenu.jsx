@@ -46,12 +46,12 @@ function NavMenu({ showMenu, width }) {
             <NavLink to="business">
               <span>Business</span>
             </NavLink>
-            <NavLink to="developer">
+            {/* <NavLink to="developer">
               <span>Developer</span>
             </NavLink>
             <NavLink to="help">
               <span>Help</span>
-            </NavLink>
+            </NavLink> */}
           </>
         )}
       </div>
