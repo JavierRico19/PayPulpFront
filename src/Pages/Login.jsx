@@ -7,7 +7,7 @@ import "../Styles/Auth.css";
 import { userContext } from "../Context/UserContext";
 
 const Login = ({ setIsAuth }) => {
-  const params = useLoaderData(); // get query params
+  const params = useLoaderData(); // get query params (if logging on gateway or main app)
   const [loginError, setLoginError] = useState(null);
   const { setUserInfo } = useContext(userContext);
   const navigate = useNavigate();

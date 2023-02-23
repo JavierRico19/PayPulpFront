@@ -1,18 +1,18 @@
 import { useContext, useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { userContext } from "../Context/UserContext";
-import Business from "../Pages/Business";
-import Dashboard from "../Pages/Dashboard";
-import Developer from "../Pages/Developer";
-import FakeStore from "../Pages/FakeStore";
-import Help from "../Pages/Help";
-import Home from "../Pages/Home";
-import Login from "../Pages/Login";
-import PaymentView from "../Pages/PaymentView.jsx";
-import Personal from "../Pages/Personal";
-import Signup from "../Pages/Signup";
-import "../Styles/App.css";
-import MainApp from "./MainApp";
+import { userContext } from "./Context/UserContext";
+import MainApp from "./Components/MainApp";
+import Business from "./Pages/Business";
+import Dashboard from "./Pages/Dashboard";
+import Developer from "./Pages/Developer";
+import FakeStore from "./Pages/FakeStore";
+import Help from "./Pages/Help";
+import Home from "./Pages/Home";
+import Login from "./Pages/Login";
+import PaymentView from "./Pages/PaymentView.jsx";
+import Personal from "./Pages/Personal";
+import Signup from "./Pages/Signup";
+import "./Styles/App.css";
 
 const router = createBrowserRouter([
   {
