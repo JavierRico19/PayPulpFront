@@ -1,9 +1,8 @@
-import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-const NavLinks = ({ width, userInfo }) => {
+const NavLinks = ({ width, accountType }) => {
   return (
-    <div className={width > 1000 ? "nav-links" : null}>
+    <div className={`nav-links ${width > 1000 ? "nav-links-desktop" : "nav-links-mobile"}`}>
     {!localStorage.getItem("token") && (
       <>
         <NavLink to="personal">
@@ -20,7 +19,7 @@ const NavLinks = ({ width, userInfo }) => {
         </NavLink>
       </>
     )}
-    {localStorage.getItem("token") && userInfo?.accountType === "personal" && (
+    {localStorage.getItem("token") && accountType === "personal" && (
       <>
         <NavLink to="dashboard">
           <span>Dashboard</span>
@@ -28,12 +27,9 @@ const NavLinks = ({ width, userInfo }) => {
         <NavLink to="business">
           <span>Business</span>
         </NavLink>
-        {/* <NavLink to="developer">
-          <span>Developer</span>
-        </NavLink>
         <NavLink to="help">
           <span>Help</span>
-        </NavLink> */}
+        </NavLink>
       </>
     )}
   </div>
