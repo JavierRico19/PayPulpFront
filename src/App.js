@@ -1,11 +1,9 @@
-import { useContext, useEffect } from "react";
 import {
   createBrowserRouter,
   redirect,
   RouterProvider,
 } from "react-router-dom";
 import MainApp from "./Components/MainApp";
-import { userContext } from "./Context/UserContext";
 import Business from "./Pages/Business";
 import Dashboard from "./Pages/Dashboard";
 import Developer from "./Pages/Developer";
@@ -16,7 +14,6 @@ import Login from "./Pages/Login";
 import PaymentView from "./Pages/PaymentView.jsx";
 import Personal from "./Pages/Personal";
 import Signup from "./Pages/Signup";
-import UserInfo from "./Services/User";
 import "./Styles/App.css";
 
 const checkForToken = () => {
@@ -66,6 +63,7 @@ const router = createBrowserRouter([
       },
       {
         path: "signup",
+        loader: loginLoader,
         element: <Signup />,
       },
       {
@@ -92,17 +90,6 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const { userInfo, setUserInfo } = useContext(userContext);
-  // if token is active, get customer info
-  useEffect(() => {
-    if (localStorage.getItem("token") && Object.keys(userInfo).length === 0) {
-      const getUserInfo = async () => {
-        const res = await UserInfo.getUserInfo();
-        setUserInfo(res.data);
-      };
-      getUserInfo();
-    }
-  }, []);
   return <RouterProvider router={router} />;
 }
 

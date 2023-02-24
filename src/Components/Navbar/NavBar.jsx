@@ -17,6 +17,7 @@ export default function NavBar() {
   const { width } = useWindowSize();
   const { userInfo, setUserInfo } = useContext(userContext);
   const navigate = useNavigate();
+  
   // turn a string to hex color
   const stringToColor = (string) => {
     let hash = 0;
