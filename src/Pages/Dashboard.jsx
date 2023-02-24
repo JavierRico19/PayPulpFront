@@ -8,12 +8,11 @@ import "../Styles/Dashboard.css";
 
 const Dashboard = () => {
   const { userInfo, transactions, setTransactions } = useContext(userContext);
-  // console.log("render", userInfo, transactions)
+  
   useEffect(() => {
     const getTransactions = async () => {
       const res = await Transactions.getTransactions(userInfo.userUuid, 10);
       if (res.status === 200) setTransactions(res.data);
-      // console.log("useEffect", userInfo, transactions)
     }
     getTransactions()
   }, [userInfo])

@@ -1,11 +1,18 @@
+.nav-wrapper {
+  /* display: flex; */
+  justify-content: center;
+  background-color: var(--bg-secondary);
+  box-shadow: 0px 5px 5px #00000025;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 4px;
+  margin: 0 auto;
   height: 4rem;
-  background-color: var(--bg-secondary);
-  box-shadow: 0px 5px 5px #00000025;
+  max-width: 1400px;
 }
 
 .logo {
@@ -40,21 +47,12 @@ nav {
   transform: translateX(0vw);
 }
 
-/* un poco chapucero */
-.nav-menu-desktop {
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  width: 70%;
-}
-
-.nav-links {
+.nav-links-desktop {
   display: flex;
   gap: 2rem;
 }
 
-.nav-menu-mobile span,
-.nav-menu-desktop span {
+.nav-links span {
   color: var(--font-secondary);
   font-size: 1.5rem;
   font-weight: 300;
@@ -67,16 +65,29 @@ nav {
 .nav-menu-mobile .round-btns {
   width: 100%;
 }
-.nav-menu-desktop .round-btns {
-  width: 100px;
-}
 
-.nav-menu-desktop .auth-btns-container {
+.btns-row {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   padding: 0 2rem;
 }
 
-.nav-avatar {
-  margin-right: 1rem;
+.btns-row .round-btns {
+  width: 100px;
+}
+
+.nav-avatar-wrapper {
+  padding: 0 20px 0 100px;
+  position: relative;
+}
+
+.desktop-dropdown {
+  display: none;
+  position: absolute;
+  width: 100px;
+  /* top: 0; */
+}
+
+.visible {
+  display: block;
 }
