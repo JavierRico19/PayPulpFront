@@ -2,15 +2,14 @@ import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import LoginCard from "../Components/LoginCard";
+import useLogin from "../Hooks/useLogin";
 import Auth from "../Services/Auth";
 import "../Styles/Auth.css";
-import { userContext } from "../Context/UserContext";
+// import { userContext } from "../Context/UserContext";
 
 const Login = ({ setIsAuth }) => {
   const params = useLoaderData(); // get query params (if logging on gateway or main app)
-  const [loginError, setLoginError] = useState(null);
-  const { setUserInfo } = useContext(userContext);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const { register, handleSubmit } = useForm({
     mode: "onTouched",
     defaultValues: {
@@ -18,29 +17,13 @@ const Login = ({ setIsAuth }) => {
       password: "1234",
     },
   });
+  const { loginError, onSubmit } = useLogin(params.isOnGateway, setIsAuth)
+
+
   // if user is logged in and tries to access login page
-  useEffect(() => {
-    if (localStorage.getItem("token") && !params.isOnGateway) navigate(-1);
-  }, [])
-  
-  const onSubmit = async (userData) => {
-    // auth req
-    try {
-      const res = await Auth.login(userData);
-      if (res.status === 200) {
-        setUserInfo(res.data.userInfo);
-        localStorage.setItem("token", res.data.token);
-        if (params.isOnGateway) {
-          setIsAuth(true);
-        } else {
-          navigate("/dashboard");
-        }
-      }
-    } catch (error) {
-      console.log(error);
-      setLoginError(true);
-    }
-  };
+  // useEffect(() => {
+  //   if (localStorage.getItem("token") && !params.isOnGateway) navigate(-1);
+  // }, [])
 
   return (
     <div className="auth">
