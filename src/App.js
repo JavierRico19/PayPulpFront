@@ -14,6 +14,7 @@ import Login from "./Pages/Login";
 import PaymentView from "./Pages/PaymentView.jsx";
 import Personal from "./Pages/Personal";
 import Signup from "./Pages/Signup";
+import UserProfile from "./Pages/UserProfile";
 import "./Styles/App.css";
 
 const checkForToken = () => {
@@ -73,6 +74,10 @@ const router = createBrowserRouter([
           {
             path: "dashboard",
             element: <Dashboard />,
+          },
+          {
+            path: "profile",
+            element: <UserProfile />,
           },
         ],
       },

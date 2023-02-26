@@ -23,7 +23,6 @@ const Login = ({ setIsAuth }) => {
     if (localStorage.getItem("token") && !params.isOnGateway) navigate(-1);
   }, [])
   
-
   const onSubmit = async (userData) => {
     // auth req
     try {
