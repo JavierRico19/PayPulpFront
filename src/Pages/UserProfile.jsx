@@ -13,9 +13,8 @@ const UserProfile = () => {
   const {
     register,
     handleSubmit,
-    watch,
     setFocus,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm({
     mode: "onTouched",
     values: {
@@ -53,6 +52,7 @@ const UserProfile = () => {
 
   return (
     <section className="profile">
+      <h2 className="profile-title">Profile</h2>
       <DashboardCard className="profile-basic-info-card">
         <div className="profile-basic-info">
           <Avatar />

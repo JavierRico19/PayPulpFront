@@ -2,8 +2,7 @@ import EditableField from "./EditableField";
 
 const CustomerInfo = ({ register, errors, setFocus, handleSubmit, onSubmit }) => {
   return (
-    <div className="profile-costumer-info">
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <form className="profile-costumer-info" onSubmit={handleSubmit(onSubmit)}>
         <EditableField
           register={register}
           errors={errors}
@@ -36,7 +35,7 @@ const CustomerInfo = ({ register, errors, setFocus, handleSubmit, onSubmit }) =>
           name="birthDate"
           label="Date of birth:"
         />
-        <div className="auth-btns">
+        <div className="profile-btns">
           <button
             className="round-btns red-btn btn-on-main"
             onClick={handleSubmit}
@@ -50,9 +49,7 @@ const CustomerInfo = ({ register, errors, setFocus, handleSubmit, onSubmit }) =>
             Save changes
           </button>
         </div>
-        
-      </form>
-    </div>
+    </form>
   );
 };
 
