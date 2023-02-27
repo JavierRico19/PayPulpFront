@@ -27,7 +27,7 @@ const UserProfile = () => {
       // securityQuestionAnswer: "Who wants to",
     },
   });
-console.log( Dates.formatDateYMD(userInfo.birthDate),)
+
   useEffect(() => {
     const getUserInfo = async () => {
       try {
@@ -42,6 +42,15 @@ console.log( Dates.formatDateYMD(userInfo.birthDate),)
     getUserInfo();
   }, []);
 
+  const onSubmit = (userData) => {
+    console.log(userData)
+    try {
+      const res = UserInfo.updateUserInfo(userData)
+    } catch (error) {
+      console.error("🥳SURPRISE!", error);
+    }
+  }
+
   return (
     <section className="profile">
       <DashboardCard className="profile-basic-info-card">
@@ -50,11 +59,20 @@ console.log( Dates.formatDateYMD(userInfo.birthDate),)
           <h2>{`${userInfo.firstName} ${userInfo.lastName}`}</h2>
           <p>{userInfo.email}</p>
           <p>{userInfo.phone}</p>
-          <p>Member since: {new Date(userInfo.creationTime).toLocaleDateString()}</p>
+          <p>
+            Member since: {new Date(userInfo.creationTime).toLocaleDateString()}
+          </p>
         </div>
       </DashboardCard>
       <DashboardCard className="profile-costumer-info-card">
-        <CustomerInfo register={register} errors={errors} userInfo={userInfo} setFocus={setFocus} />
+        <CustomerInfo
+          register={register}
+          errors={errors}
+          userInfo={userInfo}
+          setFocus={setFocus}
+          handleSubmit={handleSubmit}
+          onSubmit={onSubmit}
+        />
       </DashboardCard>
     </section>
   );
