@@ -1,4 +1,4 @@
-import photo from "../Assets/4._Developer.jpg";
+// import photo from "../Assets/4._Developer.jpg";
 import "../Styles/Developer.css";
 
 export default function Developer() {
@@ -18,7 +18,7 @@ export default function Developer() {
           className="photo"
           width="600"
           height="400"
-          src={photo}
+          src={require("../Assets/4._Developer.jpg")}
           alt="Web developers at work"
         />
       </div>
