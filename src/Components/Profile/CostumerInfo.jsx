@@ -1,6 +1,6 @@
-const CostumerInfo = ({ register, errors }) => {
+const CostumerInfo = ({ register, errors, userInfo }) => {
   return (
-    <div>
+    <div className="profile-costumer-info">
       {/* <div className="input-wrapper">
         <label htmlFor="phone">Phone number:</label>
         <input
