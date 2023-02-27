@@ -24,8 +24,8 @@ const NavLinks = ({ width, accountType }) => {
         <NavLink to="dashboard">
           <span>Dashboard</span>
         </NavLink>
-        <NavLink to="business">
-          <span>Business</span>
+        <NavLink to="profile">
+          <span>Profile</span>
         </NavLink>
         <NavLink to="help">
           <span>Help</span>

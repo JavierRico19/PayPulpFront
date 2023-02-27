@@ -18,6 +18,7 @@
   --light-blue: rgb(51, 96, 159);
   --text-dark: hsl(0, 0%, 23%);
   --text-light: hsl(0, 0%, 35%);
+  --error: #fda2a2;
 }
 
 /* :root .dark-mode {
@@ -48,6 +49,7 @@ main {
   max-width: 100vw;
   height: 100vh;
   background-color: var(--bg-dirty);
+  overflow: scroll;
 }
 
 
@@ -66,6 +68,11 @@ main {
   color: var(--mid);
 }
 
+.btn-on-main {
+  border: 1px solid var(--bg-secondary);
+  width: 100px;
+}
+
 .blue-btn {
   font-weight: 300;
   background-color: var(--bg-secondary);
@@ -78,10 +85,13 @@ main {
   color: var(--bg-secondary);
 }
 
-.btn-on-main {
-  border: 1px solid var(--bg-secondary);
-  width: 100px;
+.red-btn {
+  font-weight: 400;
+  background-color: #00000000;
+  color: var(--error);
+  border: 1px solid var(--error);
 }
+
 
 input {
   border: none;

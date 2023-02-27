@@ -1,7 +1,10 @@
 import "../Styles/CardImage.css"
+import { userContext } from "../Context/UserContext";
+import { useContext } from "react";
 
 const CardImage = () => {
-
+  const { userInfo } = useContext(userContext);
+  console.log(userInfo);
   return (
     <div className="card-container">
       <div
@@ -12,7 +15,7 @@ const CardImage = () => {
           <div>Bank</div>
         </div>
         <div className="card__owner-info">
-          <div>Andrea Ling</div>
+          <div>{`${userInfo.firstName} ${userInfo.lastName}`}</div>
           <div>0000 0000 0000 0000</div>
         </div>
       </div>
