@@ -1,4 +1,4 @@
-const Input = ({ register, errors, type, name, label, watch=null }) => {
+const Input = ({ register, errors, type, name, label, readOnly=false, watch=null }) => {
   const validation = {
     shortText: {
       required: "Field required",
@@ -84,6 +84,7 @@ const Input = ({ register, errors, type, name, label, watch=null }) => {
         className={`text-input ${errors[name] && "input-error"}`}
         type={type === "date" ? "date" : "text"}
         {...register(name, validation[type])}
+        readOnly={readOnly}
       />
       <p className="input-error-text">{errors[name]?.message}</p>
     </div>
